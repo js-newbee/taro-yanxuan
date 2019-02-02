@@ -1,0 +1,14 @@
+/* RN 中 View 标签的默认样式 */
+view {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+button {
+  /* 去掉微信小程序 button 的边框 */
+  &:after {
+    display: none;
+  }
+}
