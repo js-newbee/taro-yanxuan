@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'taro-yanxuan',
   date: '2019-2-1',
@@ -25,6 +27,14 @@ const config = {
     }
   },
   defineConstants: {
+  },
+  alias: {
+    '@actions': path.resolve(__dirname, '..', 'src/actions'),
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@components': path.resolve(__dirname, '..', 'src/components'),
+    '@constants': path.resolve(__dirname, '..', 'src/constants'),
+    '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {
     patterns: [
