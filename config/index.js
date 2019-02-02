@@ -24,6 +24,14 @@ const config = {
         'transform-class-properties',
         'transform-object-rest-spread'
       ]
+    },
+    sass: {
+      importer: function(url) {
+        const reg = /^@styles\/(.*)/
+        return {
+          file: reg.test(url) ? path.resolve(__dirname, '..', 'src/styles', url.match(reg)[1]) : url
+        }
+      }
     }
   },
   defineConstants: {
@@ -34,6 +42,7 @@ const config = {
     '@components': path.resolve(__dirname, '..', 'src/components'),
     '@constants': path.resolve(__dirname, '..', 'src/constants'),
     '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
+    '@styles': path.resolve(__dirname, '..', 'src/styles'),
     '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {
