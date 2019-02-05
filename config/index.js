@@ -1,5 +1,12 @@
 const path = require('path')
 
+const sassImportor = function(url) {
+  const reg = /^@styles\/(.*)/
+  return {
+    file: reg.test(url) ? path.resolve(__dirname, '..', 'src/styles', url.match(reg)[1]) : url
+  }
+}
+
 const config = {
   projectName: 'taro-yanxuan',
   date: '2019-2-1',
@@ -26,12 +33,7 @@ const config = {
       ]
     },
     sass: {
-      importer: function(url) {
-        const reg = /^@styles\/(.*)/
-        return {
-          file: reg.test(url) ? path.resolve(__dirname, '..', 'src/styles', url.match(reg)[1]) : url
-        }
-      }
+      importer: sassImportor
     }
   },
   defineConstants: {
@@ -109,6 +111,9 @@ const config = {
           }
         }
       }
+    },
+    sassLoaderOption: {
+      importer: sassImportor
     }
   }
 }
