@@ -1,9 +1,5 @@
 /* 统一成 RN 中 View 标签的默认样式 */
-view,
-.taro_page div {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+view, div {
   box-sizing: border-box;
 }
 
