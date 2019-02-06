@@ -1,0 +1,47 @@
+.user-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.user-menu__item {
+  /**
+   * XXX RN 对百分比的支持不是很好，例如此处设置为 33.3% 不起作用
+   * 也不能设置为 250px (即 750px / 3)，因为编译成 RN 样式时是个固定值，无法适用于不同屏幕大小
+   * （通常在 RN 会取当前屏幕大小进行计算，写在 style 属性中）
+   * 这里采用 flex-basis 实现相同效果
+   */
+  flex-basis: 33.3%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+
+  /* XXX border-right: 1px solid color; 的写法编译成 RN 时有问题，需写成如下形式 */
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-top-width: 0;
+  border-left-width: 0;
+
+  &-img {
+    width: 52px;
+    height: 52px;
+  }
+
+  &-txt {
+    margin-top: 16px;
+    color: #333;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  &--nth {
+    border-right-width: 0;
+  }
+
+  &--last {
+    border-bottom-width: 0;
+  }
+}

@@ -1,0 +1,23 @@
+.user {
+  // TODO 全屏背景色, RN 上设置 flex: 1 不起作用？
+  flex: 1;
+  height: 100%;
+  background: #f4f4f4;
+  padding-bottom: 40px;
+}
+
+.user__logout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  height: 96px;
+  background: #fff;
+
+  &-txt {
+    color: #333;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}

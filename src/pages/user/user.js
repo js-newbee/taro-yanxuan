@@ -1,9 +1,10 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/counter'
+import Profile from './profile'
+import Menu from './menu'
 import './user.scss'
-
 
 @connect(state => state.counter, actions)
 class Index extends Component {
@@ -11,24 +12,14 @@ class Index extends Component {
     navigationBarTitleText: '个人中心'
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
-  }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
   render () {
     return (
-      <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+      <View className='user'>
+        <Profile />
+        <Menu />
+        <View className='user__logout'>
+          <Text className='user__logout-txt'>退出登录</Text>
+        </View>
       </View>
     )
   }

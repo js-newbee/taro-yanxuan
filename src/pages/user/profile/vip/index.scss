@@ -1,0 +1,50 @@
+$height: 84px;
+
+.user-profile-vip {
+  position: absolute;
+  top: 100px;
+  right: -30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 240px;
+  height: $height;
+  background: #444;
+  border-radius: $height 0 0 $height;
+}
+
+.user-profile-vip__gift {
+  margin-left: 10px;
+  width: 56px;
+  height: 56px;
+}
+
+.user-profile-vip__desc {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+
+  &-txt {
+    color: #ede7d8;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-txt {
+      color: #ede7d8;
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    &-img {
+      margin-left: 4px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
