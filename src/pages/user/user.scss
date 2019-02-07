@@ -1,5 +1,7 @@
 .user {
-  // TODO 全屏背景色, RN 上设置 flex: 1 不起作用？
+  // TODO RN上页面默认嵌套的 ScrollView 有点问题
+  // 导致 flex: 1、height: 100% 都无效
+  // https://github.com/NervJS/taro/pull/2114
   flex: 1;
   height: 100%;
   background: #f4f4f4;

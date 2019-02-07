@@ -6,19 +6,18 @@
 }
 
 .user-menu__item {
-  /**
-   * XXX RN 对百分比的支持不是很好，例如此处设置为 33.3% 不起作用
-   * 也不能设置为 250px (即 750px / 3)，因为编译成 RN 样式时是个固定值，无法适用于不同屏幕大小
-   * （通常在 RN 会取当前屏幕大小进行计算，写在 style 属性中）
-   * 这里采用 flex-basis 实现相同效果
-   */
-  flex-basis: 33.3%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 33.3%;
   height: 180px;
+
+  /**
+   * TODO RN 中的 View 是没有 onClick 事件的，Taro 做了兼容处理，但对样式处理尚有问题
+   * 暂时通过 flex-basis 实现 width 效果
+   */
+   flex-basis: 33.3%;
 
   /* XXX border-right: 1px solid color; 的写法编译成 RN 时有问题，需写成如下形式 */
   border: 1px solid rgba(0, 0, 0, .15);
