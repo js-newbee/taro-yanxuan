@@ -6,9 +6,10 @@ import { ButtonItem } from '@components'
 import logo from './assets/logo.png'
 import './user-login.scss'
 
-const BUTTON = {
-  marginTop: Taro.pxTransform(30)
-}
+/* TODO 由于 RN 的 app.js 中 initPxTransform 执行顺序关系，不能在这里用到 Taro.pxTransform */
+// const BUTTON = {
+//   marginTop: Taro.pxTransform(30)
+// }
 
 @connect(state => state.counter, actions)
 class UserLogin extends Component {
@@ -17,6 +18,10 @@ class UserLogin extends Component {
   }
 
   render () {
+    const BUTTON = {
+      marginTop: Taro.pxTransform(30)
+    }
+
     return (
       <View className='user-login'>
         <View className='user-login__logo'>
