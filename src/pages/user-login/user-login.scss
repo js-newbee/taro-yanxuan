@@ -5,20 +5,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 40px;
+  padding: 0 40px;
   background: #ffffff;
 }
 
 .user-login__logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-bottom: 100px;
-  width: 268px;
-  height: 90px;
+
+  &-img {
+    width: 268px;
+    height: 90px;
+  }
 }
 
 .user-login__reg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-top: 56px;
-  /* XXX 要注意 line-height 对间距的影响 */
   line-height: 0;
 
   &-txt {

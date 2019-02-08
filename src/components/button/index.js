@@ -5,7 +5,7 @@ import './index.scss'
 
 export default class extends Component {
   static defaultProps = {
-    style: {},
+    compStyle: {},
     textStyle: {},
     plain: false,
     loading: false,
@@ -24,11 +24,11 @@ export default class extends Component {
   }
 
   render () {
-    const { style, textStyle, loading, disabled, text, onClick } = this.props
+    const { compStyle, textStyle, loading, disabled, text, onClick } = this.props
     return (
       <Button
         className={this.getCls('comp-button')}
-        style={style}
+        style={compStyle}
         loading={loading}
         disabled={disabled}
         onClick={onClick}

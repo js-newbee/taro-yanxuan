@@ -9,7 +9,6 @@
   border: 0;
   border-radius: 0;
   background: #ffffff;
-  box-sizing: border-box;
 
   &--primary {
     background: $primary-color;
@@ -17,7 +16,8 @@
 
   &--plain {
     border: 1px solid $primary-color;
-    background: transparent;
+    /* TODO background: transparent 的编译有问题 */
+    background-color: transparent;
   }
 
   &--disabled {

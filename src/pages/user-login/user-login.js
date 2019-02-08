@@ -19,7 +19,9 @@ class UserLogin extends Component {
   render () {
     return (
       <View className='user-login'>
-        <Image src={logo} className='user-login__logo' />
+        <View className='user-login__logo'>
+          <Image src={logo} className='user-login__logo-img' />
+        </View>
         <ButtonItem
           type='primary'
           text='微信登录'
@@ -27,12 +29,12 @@ class UserLogin extends Component {
         <ButtonItem
           plain
           text='邮箱账号登录'
-          style={BUTTON}
+          compStyle={BUTTON}
         />
         <ButtonItem
           plain
           text='手机号登录'
-          style={BUTTON}
+          compStyle={BUTTON}
         />
         <View className='user-login__reg'>
           <Text className='user-login__reg-txt'>

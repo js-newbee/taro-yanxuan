@@ -1,17 +1,28 @@
-/* 统一成 RN 中 View 标签的默认样式 */
-view, div {
+/* weapp */
+page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+view {
   box-sizing: border-box;
 }
 
 button {
-  /* 去掉微信小程序 button 的边框 */
   &:after {
     display: none;
   }
 }
 
-/* H5 根节点高度 100% */
-.taro-tabbar__panel, .taro_router, .taro_page {
+/* h5 */
+div {
+  box-sizing: border-box;
+}
+
+.taro-tabbar__panel,
+.taro_router,
+.taro_page {
   flex: 1;
   display: flex;
   flex-direction: column;
