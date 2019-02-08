@@ -1,0 +1,43 @@
+@import '@styles/theme.scss';
+
+.comp-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 94px;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+  box-sizing: border-box;
+
+  &--primary {
+    background: $primary-color;
+  }
+
+  &--plain {
+    border: 1px solid $primary-color;
+    background: transparent;
+  }
+
+  &--disabled {
+    background: $disabled-color;
+  }
+}
+
+.comp-button__txt {
+  color: $text-color;
+  font-size: 28px;
+
+  &--primary {
+    color: #ffffff;
+  }
+
+  &--plain {
+    color: $primary-color;
+  }
+
+  &--disabled {
+    color: #ffffff;
+  }
+}

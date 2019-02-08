@@ -9,3 +9,10 @@ button {
     display: none;
   }
 }
+
+/* H5 根节点高度 100% */
+.taro-tabbar__panel, .taro_router, .taro_page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,29 @@
+@import '@styles/theme.scss';
+
+.user-login {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #ffffff;
+}
+
+.user-login__logo {
+  margin-bottom: 100px;
+  width: 268px;
+  height: 90px;
+}
+
+.user-login__reg {
+  margin-top: 56px;
+  /* XXX 要注意 line-height 对间距的影响 */
+  line-height: 0;
+
+  &-txt {
+    color: $text-color;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
