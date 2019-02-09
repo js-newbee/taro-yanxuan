@@ -1,0 +1,21 @@
+.cate {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background: #ffffff;
+}
+
+.cate__menu {
+  width: 162px;
+  /* XXX border-right: 1px solid color; 的写法编译成 RN 时有问题，需写成如下形式 */
+  border: 0 solid rgba(0, 0, 0, .15);
+  border-right-width: 1px;
+}
+
+.cate__list {
+  flex: 1;
+
+  &-wrap {
+    padding: 30px 30px 20px;
+  }
+}

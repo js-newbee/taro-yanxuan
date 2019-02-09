@@ -7,6 +7,10 @@ import qrCode from './assets/qr-code.png'
 import './index.scss'
 
 export default class Profile extends Component {
+  static defaultProps = {
+    userInfo: {}
+  }
+
   handleLogin = () => {
     const { userInfo } = this.props
     if (!userInfo.id) {

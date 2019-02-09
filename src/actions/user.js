@@ -6,13 +6,13 @@ import fetch from '@utils/request'
 
 export const dispatchLogin = (payload) => {
   return (dispatch) => {
-    fetch({ url: '/user/login', payload }).then((res) => {
+    return fetch({ url: '/user/login', payload }).then((res) => {
       dispatch({
         type: USER_LOGIN,
         payload: res.data
       })
+      return res
     })
-    return Promise.resolve()
   }
 }
 

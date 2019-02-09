@@ -1,6 +1,6 @@
 import {
   USER_LOGIN, USER_LOGOUT
-} from '../constants/user'
+} from '@constants/user'
 
 const INITIAL_STATE = {
   userInfo: {}
