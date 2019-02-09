@@ -21,9 +21,11 @@ div {
 }
 
 .taro-tabbar__panel,
-.taro_router,
-.taro_page {
+.taro_router {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+.taro_page {
+  flex: 1;
 }
