@@ -11,7 +11,7 @@ export default function user(state = INITIAL_STATE, action) {
     case USER_LOGIN: {
       return {
         ...state,
-        userInfo: MOCK_DATA[USER_LOGIN]
+        userInfo: action.payload
       }
     }
     case USER_LOGOUT: {
@@ -21,14 +21,5 @@ export default function user(state = INITIAL_STATE, action) {
     }
     default:
       return state
-  }
-}
-
-const MOCK_DATA = {
-  USER_LOGIN: {
-    id: 1,
-    name: 'jsNewbee',
-    avatar: require('./assets/avatar.png'),
-    type: '微信用户'
   }
 }

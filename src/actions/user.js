@@ -1,13 +1,16 @@
 import {
   USER_LOGIN,
   USER_LOGOUT
-} from '../constants/user'
+} from '@constants/user'
+import fetch from '@utils/request'
 
 export const dispatchLogin = (payload) => {
-  return dispatch => {
-    dispatch({
-      type: USER_LOGIN,
-      payload
+  return (dispatch) => {
+    fetch({ url: '/user/login', payload }).then((res) => {
+      dispatch({
+        type: USER_LOGIN,
+        payload: res.data
+      })
     })
     return Promise.resolve()
   }
