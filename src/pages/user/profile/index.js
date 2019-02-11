@@ -34,11 +34,13 @@ export default class Profile extends Component {
         />
 
         <View className='user-profile__wrap'>
-          <Image
-            className='user-profile__avatar'
-            src={userInfo.avatar || defaultAvatar}
-            onClick={this.handleLogin}
-          />
+          <View className='user-profile__avatar'>
+            <Image
+              className='user-profile__avatar-img'
+              src={userInfo.avatar || defaultAvatar}
+              onClick={this.handleLogin}
+            />
+          </View>
 
           <View className='user-profile__info' onClick={this.handleLogin}>
             <Text className='user-profile__info-name'>{isLogin ? userInfo.name : '未登录'}</Text>

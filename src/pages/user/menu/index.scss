@@ -10,14 +10,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 33.3%;
   height: 180px;
 
   /**
    * TODO RN 中的 View 是没有 onClick 事件的，Taro 做了兼容处理，但对样式处理尚有问题
    * 暂时通过 flex-basis 实现 width 效果
    */
-   flex-basis: 33.3%;
+  // width: 33.3%;
+  flex-basis: 33.3%;
 
   /* XXX border-right: 1px solid color; 的写法编译成 RN 时有问题，需写成如下形式 */
   border: 1px solid rgba(0, 0, 0, .15);

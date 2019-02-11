@@ -13,7 +13,8 @@
 }
 
 .cate__list {
-  flex: 1;
+  /* TODO 这边不能写 flex: 1 (flex-basis: 0)，RN 上会无法滚动，还是跟 ScrollView 的处理有关 */
+  flex-grow: 1;
 
   &-wrap {
     padding: 30px 30px 20px;
