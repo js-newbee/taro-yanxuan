@@ -1,0 +1,40 @@
+@import "@styles/theme.scss";
+
+.cart-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  background: #faf9fa;
+}
+
+.cart-footer__select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  padding-left: 30px;
+
+  &-txt {
+    color: #7f7f7f;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+.cart-footer__amount {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 30px;
+
+  &-txt {
+    color: $primary-color;
+    font-size: 28px;
+  }
+}
+
+.cart-footer__btn {
+  width: 226px;
+}

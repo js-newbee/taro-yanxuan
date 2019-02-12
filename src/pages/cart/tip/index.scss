@@ -1,0 +1,27 @@
+@import "@styles/theme.scss";
+
+.cart-tip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 48px;
+}
+
+.cart-tip__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-img {
+    margin-right: 6px;
+    width: 10px;
+    height: 10px;
+  }
+
+  &-txt {
+    color: $text-color-light;
+    font-size: 24px;
+  }
+}

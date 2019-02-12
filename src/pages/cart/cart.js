@@ -1,34 +1,65 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import * as actions from '@actions/counter'
+import * as actions from '@actions/cart'
+import { getWindowHeight } from '@utils/style'
+import Tip from './tip'
+import Gift from './gift'
+import Empty from './empty'
+import List from './list'
+import Recommend from './recommend'
+import Footer from './footer'
 import './cart.scss'
 
-
-@connect(state => state.counter, actions)
+@connect(state => state.cart, actions)
 class Index extends Component {
   config = {
     navigationBarTitleText: '购物车'
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+  componentDidMount() {
+    this.props.dispatchRecommend()
   }
 
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
   render () {
+    const { list, recommend } = this.props
+    const selected = list.filter(item => item.selected)
+    const amount = selected.reduce((prev, next) => prev + next.price, 0)
+    const isEmpty = !list.length
+    const isShowFooter = !isEmpty
+
     return (
-      <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+      <View className='cart'>
+        <ScrollView
+          scrollY
+          className='cart__wrap'
+          style={{ height: getWindowHeight() }}
+        >
+          <Tip />
+          {!isEmpty && <Gift amount={amount} />}
+          {!isEmpty ?
+            <List
+              list={list}
+              onToggle={this.props.dispatchToggleItem}
+              onUpdate={this.props.dispatchUpdateItem}
+              onRemove={this.props.dispatchRemoveItem}
+            /> :
+            <Empty />
+          }
+          <Recommend list={recommend} />
+          {isShowFooter &&
+            <View className='cart__footer--placeholder' />
+          }
+        </ScrollView>
+        {isShowFooter &&
+          <View className='cart__footer'>
+            <Footer
+              selectedCount={selected.length}
+              amount={amount}
+              onToggle={this.props.dispatchToggleAll}
+            />
+          </View>
+        }
       </View>
     )
   }

@@ -1,0 +1,48 @@
+@import "@styles/theme.scss";
+
+.cart-gift {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30px;
+  height: 90px;
+  background: #ffffff;
+}
+
+.cart-gift__tag {
+  margin-right: 18px;
+  padding: 4px 9px;
+  color: #f48f18;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 24px;
+  border: 1px solid #f48f18;
+}
+
+.cart-gift__txt {
+  flex: 1;
+  color: $text-color;
+  font-size: 28px;
+  line-height: 42px;
+}
+
+.cart-gift__arrow {
+  margin: 0 30px;
+  color: $text-color;
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.cart-gift__line {
+  margin-right: 10px;
+  width: 2px;
+  height: 50px;
+  /* TODO RN 端对 border 的编译存在问题，暂时用如下写法 */
+  border: 0 solid $border-color;
+  border-right-width: 2px;
+}
+
+.cart-gift__link {
+  font-size: 28px;
+  line-height: 28px;
+}

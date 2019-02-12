@@ -13,8 +13,12 @@
 }
 
 .cate__list {
-  /* TODO 这边不能写 flex: 1 (flex-basis: 0)，RN 上会无法滚动，还是跟 ScrollView 的处理有关 */
+  /* TODO 此处不能能用 flex: 1 (flex-basis: 0)，RN 上会无法滚动，跟 ScrollView 的处理有关 */
   flex-grow: 1;
+
+  /*postcss-pxtransform rn eject enable*/
+  flex: 1;
+  /*postcss-pxtransform rn eject disable*/
 
   &-wrap {
     padding: 30px 30px 20px;

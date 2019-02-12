@@ -1,0 +1,20 @@
+$footerHeight: 100px;
+
+.cart {
+  position: relative;
+  height: 100%;
+  background: #f4f4f4;
+}
+
+.cart__footer {
+  /* XXX RN 中没有 position: fixed，只能用 absolute 了或 flex 布局实现(此处不适用) */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $footerHeight;
+
+  &--placeholder {
+    height: $footerHeight;
+  }
+}

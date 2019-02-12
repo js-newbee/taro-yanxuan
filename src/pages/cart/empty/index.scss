@@ -1,0 +1,21 @@
+@import "@styles/theme.scss";
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 170px 0 150px;
+  background: #ffffff;
+}
+
+.cart-empty__img {
+  width: 300px;
+  height: 200px;
+}
+
+.cart-empty__txt {
+  margin-top: 8px;
+  color: $text-color-lighter;
+  font-size: 28px;
+  line-height: 28px;
+}

@@ -3,7 +3,7 @@ import { Button, Text } from '@tarojs/components'
 import classNames from 'classnames'
 import './index.scss'
 
-export default class extends Component {
+export default class ButtonItem extends Component {
   static defaultProps = {
     compStyle: {},
     textStyle: {},

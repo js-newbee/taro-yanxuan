@@ -1,0 +1,84 @@
+@import "@styles/theme.scss";
+
+.cart-list {
+  margin-bottom: -20px;
+}
+
+.cart-list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  padding: 24px 30px 46px;
+  background: #ffffff;
+
+  &-img {
+    width: 160px;
+    height: 160px;
+    background: #fafafa;
+    border-radius: 4px;
+    margin-right: 22px;
+  }
+
+  &-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    &-tag {
+      margin-right: 12px;
+      color: #f48f18;
+      font-size: 28px;
+      line-height: 42px;
+    }
+
+    &-name {
+      flex: 1;
+      color: $text-color;
+      font-size: 28px;
+      line-height: 42px;
+
+      /* XXX RN 无法通过如下方式实现省略号，只能用 Text 的属性 numberOfLines */
+      /*postcss-pxtransform rn eject enable*/
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      /*postcss-pxtransform rn eject disable*/
+    }
+  }
+
+  &-spec {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+
+    &-txt {
+      padding: 6px 12px;
+      color: $text-color-light;
+      font-size: 24px;
+      line-height: 24px;
+      background: #f4f3f4;
+      border-radius: 4px;
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+  }
+
+  &-price {
+    color: $text-color;
+    font-size: 26px;
+    line-height: 26px;
+  }
+}

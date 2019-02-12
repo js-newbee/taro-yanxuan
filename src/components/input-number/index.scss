@@ -1,0 +1,50 @@
+@import '@styles/theme.scss';
+
+$height: 52px;
+
+.comp-input-number {
+  display: flex;
+  flex-direction: row;
+}
+
+.comp-input-number__minus,
+.comp-input-number__plus {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 84px;
+  height: $height;
+  border: 1px solid #7f7f7f;
+  border-left-width: 0;
+
+  &-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.comp-input-number__minus {
+  border-left-width: 1px;
+  border-right-width: 0;
+
+  &--disabled {
+    border-color: #cccccc;
+  }
+}
+
+.comp-input-number__num {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 76px;
+  height: $height;
+  border: 1px solid #7f7f7f;
+
+  &-txt {
+    color: $text-color;
+    font-size: 24px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,17 @@
+@import '@styles/theme.scss';
+
+.comp-tag {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.comp-tag__txt {
+  padding: 6px 18px;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 24px;
+  background: #e37b7d;
+  border-radius: 2px;
+}
