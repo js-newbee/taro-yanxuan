@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 import {
   CART_RECOMMEND,
   CART_ADD_ITEM, CART_REMOVE_ITEM, CART_UPDATE_ITEM,
@@ -8,6 +9,20 @@ const INITIAL_STATE = {
   recommend: [],
   // item: { id, selected, num ... }
   list: []
+}
+
+// TODO H5、RN 还不支持
+const updateTabBar = (count) => {
+  if (count > 0) {
+    Taro.setTabBarBadge({
+      index: 2,
+      text: `${count}`
+    })
+  } else {
+    Taro.removeTabBarBadge({
+      index: 2
+    })
+  }
 }
 
 export default function cart(state = INITIAL_STATE, action) {
@@ -26,6 +41,7 @@ export default function cart(state = INITIAL_STATE, action) {
       } else {
         list[index] = { ...list[index], num: list[index] + 1 }
       }
+      updateTabBar(list.length)
       return { ...state, list }
     }
     case CART_REMOVE_ITEM: {
@@ -34,6 +50,7 @@ export default function cart(state = INITIAL_STATE, action) {
       if (index !== -1) {
         list.splice(index, 1)
       }
+      updateTabBar(list.length)
       return { ...state, list }
     }
     case CART_UPDATE_ITEM: {

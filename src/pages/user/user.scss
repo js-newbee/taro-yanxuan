@@ -1,10 +1,9 @@
 .user {
-  // TODO RN上页面默认嵌套的 ScrollView 有点问题
-  // 导致 flex: 1、height: 100% 都无效
-  // https://github.com/NervJS/taro/pull/2114
-  min-height: 100%;
-  background: #f4f4f4;
-  padding-bottom: 40px;
+  position: relative;
+}
+
+.user__wrap {
+  background: #fafafa;
 }
 
 .user__logout {
@@ -24,4 +23,14 @@
     width: 100%;
     text-align: center;
   }
+}
+
+.user__empty {
+  height: 40px;
+}
+
+.user__activity {
+  position: absolute;
+  right: 30px;
+  bottom: 60px;
 }

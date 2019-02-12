@@ -14,7 +14,7 @@ const MENU_LIST = [{
 }, {
   key: 'bargain',
   text: '我的砍价',
-  img: require('./assets/priority.png')
+  img: require('./assets/bargain.png')
 }, {
   key: 'credit',
   text: '我的积分',
@@ -54,7 +54,7 @@ const MENU_LIST = [{
 }, {
   key: 'help',
   text: '帮助中心',
-  img: require('./assets/vip.png')
+  img: require('./assets/help.png')
 }]
 const COUNT_LINE = 3
 
