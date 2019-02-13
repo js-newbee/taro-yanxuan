@@ -1,0 +1,71 @@
+@import "@styles/theme.scss";
+
+.home-flash-sale {
+  margin-top: 20px;
+  padding: 0 30px 40px;
+  background: #ffffff;
+}
+
+.home-flash-sale__cnt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 14px;
+
+  &-time {
+    width: 38px;
+    height: 38px;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    background: $text-color;
+    border-radius: 4px;
+  }
+
+  &-split {
+    margin: 0 8px;
+    color: $text-color;
+    font-size: 24px;
+  }
+}
+
+.home-flash-sale__list {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 0 -10px;
+
+  &-item {
+    padding: 0 10px;
+
+    &-img {
+      width: 218px;
+      height: 218px;
+      background: #fafafa;
+      border-radius: 4px;
+    }
+
+    &-wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-price {
+      color: $primary-color;
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    &-origin {
+      margin-left: 12px;
+      color: $text-color-lighter;
+      font-size: 24px;
+      line-height: 24px;
+      text-decoration: line-through;
+      text-decoration-color: $text-color-lighter;
+    }
+  }
+}

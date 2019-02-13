@@ -1,0 +1,19 @@
+@import "@styles/theme.scss";
+
+.home-banner {
+  height: 340px;
+  background: #ffffff;
+}
+
+.home-banner__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &-img {
+    width: 690px;
+    height: 340px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}

@@ -19,7 +19,7 @@ const store = configStore()
 class App extends Component {
   config = {
     pages: [
-      'pages/index/index',
+      'pages/home/home',
       'pages/cate/cate',
       'pages/cart/cart',
       'pages/user/user',
@@ -37,9 +37,9 @@ class App extends Component {
       backgroundColor: "#fafafa",
       borderStyle: 'black',
       list: [{
-        pagePath: "pages/index/index",
-        iconPath: "./assets/tab-bar/index.png",
-        selectedIconPath: "./assets/tab-bar/index-active.png",
+        pagePath: "pages/home/home",
+        iconPath: "./assets/tab-bar/home.png",
+        selectedIconPath: "./assets/tab-bar/home-active.png",
         text: "首页"
       }, {
         pagePath: "pages/cate/cate",

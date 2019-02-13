@@ -1,0 +1,28 @@
+@import "@styles/theme.scss";
+
+.home-policy {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 30px;
+  background: #ffffff;
+}
+
+.home-policy__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-img {
+    margin-right: 14px;
+    width: 28px;
+    height: 28px;
+  }
+
+  &-txt {
+    color: $text-color-light;
+    font-size: 24px;
+  }
+}

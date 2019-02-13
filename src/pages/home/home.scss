@@ -1,0 +1,37 @@
+@import "@styles/theme.scss";
+
+.home {
+  position: relative;
+}
+
+.home__search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 30px 20px;
+  width: 100%;
+  background: #ffffff;
+  z-index: 9;
+
+  &-wrap {
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* XXX 大写的 px 不会被编译成 rpx、em */
+    border: 1PX solid #333333;
+    border-radius: 28px;
+  }
+
+  &-txt {
+    color: $text-color;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+.home__wrap {
+  padding: 76px 0 50px;
+  background: #fafafa;
+}

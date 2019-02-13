@@ -1,0 +1,23 @@
+@import '@styles/theme.scss';
+
+.comp-home-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 96px;
+}
+
+.comp-home-title__txt {
+  color: #000000;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.comp-home-title__content {
+  flex: 1;
+}
+
+.comp-home-title__link {
+  font-size: 28px;
+  color: $text-color-light;
+}

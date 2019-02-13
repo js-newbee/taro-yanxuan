@@ -1,0 +1,16 @@
+@import "@styles/theme.scss";
+
+.home-operation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  padding: 30px 25px;
+  background: #ffffff;
+}
+
+.home-operation__item {
+  margin: 0 5px;
+  width: 226px;
+  height: 280px;
+}

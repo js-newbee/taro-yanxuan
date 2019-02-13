@@ -1,0 +1,117 @@
+@import "@styles/theme.scss";
+
+.home-recommend {
+  margin-top: 40px;
+  background: #ffffff;
+}
+
+.home-recommend__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+  &-txt {
+    color: #000000;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+}
+
+.home-recommend__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 15px;
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 48px;
+
+    /* TODO RN 的 Clickable 处理有问题，暂时用 flex-basis 实现 width */
+    /*postcss-pxtransform rn eject enable*/
+    width: 50%;
+    /*postcss-pxtransform rn eject disable*/
+    flex-basis: 50%;
+
+    &-desc {
+      padding: 0 12px;
+      width: 330px;
+      height: 70px;
+      line-height: 70px;
+      color: #9e8962;
+      font-size: 24px;
+      background: #f0ebe2;
+    }
+
+    &-img {
+      width: 330px;
+      height: 330px;
+      background: #f4f4f4;
+      border-radius: 4px;
+    }
+
+    &-info {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-name {
+      color: $text-color;
+      font-size: 28px;
+      line-height: 40px;
+      /* XXX RN 无法通过如下方式实现省略号，只能用 Text 的属性 numberOfLines */
+      /*postcss-pxtransform rn eject enable*/
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      /*postcss-pxtransform rn eject disable*/
+    }
+
+    &-price-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &-price {
+      color: #000000;
+      font-size: 32px;
+      line-height: 48px;
+    }
+
+    &-price--origin {
+      margin-left: 14px;
+      color: $text-color-lighter;
+      font-size: 30px;
+      font-weight: 200;
+      line-height: 48px;
+      text-decoration: line-through;
+      text-decoration-color: $text-color-lighter;
+    }
+
+    &-commend {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 10px;
+      height: 70px;
+      border-radius: 35px;
+      background: #fafafa;
+
+      &-img {
+        width: 50px;
+        height: 50px;
+      }
+
+      &-txt {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+  }
+}

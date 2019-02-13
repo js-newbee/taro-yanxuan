@@ -1,0 +1,39 @@
+@import "@styles/theme.scss";
+
+.home-popular {
+  margin-top: 20px;
+  padding: 0 30px 30px;
+  background: #ffffff;
+}
+
+.home-popular__list {
+  display: flex;
+  flex-direction: row;
+  margin: 0 -10px;
+
+  &-item {
+    padding: 0 10px;
+
+    &-img {
+      width: 218px;
+      height: 218px;
+      background: #fafafa;
+      border-radius: 4px;
+    }
+
+    &-wrap {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-name {
+      color: $text-color;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    &-price {
+      color: $primary-color;
+    }
+  }
+}

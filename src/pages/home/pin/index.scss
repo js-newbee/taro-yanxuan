@@ -1,0 +1,39 @@
+@import "@styles/theme.scss";
+
+.home-pin {
+  padding: 0 30px;
+  background: #ffffff;
+}
+
+.home-pin__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &-txt {
+    color: #000000;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 28px;
+  }
+
+  &-link {
+    color: $text-color-light;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+.home-swiper__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &-img {
+    width: 690px;
+    height: 340px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}

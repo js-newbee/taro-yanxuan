@@ -1,0 +1,86 @@
+@import "@styles/theme.scss";
+
+.home-manufactory {
+  margin-top: 20px;
+  padding: 0 30px;
+  background: #ffffff;
+}
+
+.home-manufactory__list {
+  margin: 0 -4px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &-item {
+    position: relative;
+    margin: 4px;
+    width: 340px;
+    height: 306px;
+
+    &-img {
+      width: 340px;
+      height: 306px;
+    }
+
+    &-name {
+      position: absolute;
+      top: 26px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      &-txt {
+        color: $text-color;
+        font-size: 28px;
+        line-height: 28px;
+      }
+    }
+
+    &-wrap {
+      position: absolute;
+      top: 66px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-price {
+      color: $text-color-lighter;
+      font-size: 24px;
+      line-height: 38px;
+    }
+
+    &-tag {
+      margin-left: 10px;
+      width: 86px;
+      height: 38px;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 200;
+      line-height: 38px;
+      text-align: center;
+      background: #ccb496;
+      border-radius: 2px;
+    }
+  }
+}
+
+.home-manufactory__boss {
+  margin: 26px -30px 0;
+
+  &-item {
+    display: flex;
+    flex-direction: row;
+
+    &-img {
+      width: 750px;
+      height: 160px;
+    }
+  }
+}
