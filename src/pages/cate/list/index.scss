@@ -10,8 +10,11 @@ $item-size: 144px;
 }
 
 .cate-list__title {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 24px;
   padding-bottom: 8px;
+  /* TODO RN 端对 border 的编译存在问题，暂时用如下写法 */
   border: 0 solid $border-color;
   border-bottom-width: 1px;
 

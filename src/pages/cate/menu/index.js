@@ -25,9 +25,9 @@ export default class Menu extends Component {
               onClick={this.handleClick.bind(this, item.id)}
             >
               <Text
-                className={classNames('cate-menu__item-txt', active && 'cate-menu__item-txt--active')}
+                className={classNames('cate-menu__item-name', active && 'cate-menu__item-name--active')}
               >
-                {item.text}
+                {item.name}
               </Text>
             </View>
           )

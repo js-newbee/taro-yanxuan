@@ -1,15 +1,13 @@
-import {
-  CATE_MENU,
-  CATE_LIST
-} from '@constants/cate'
+import { CATE_MENU, CATE_LIST } from '@constants/cate'
+import { API_CATE } from '@constants/api'
 import fetch from '@utils/request'
 
 export const dispatchMenu = (payload) => {
   return (dispatch) => {
-    return fetch({ url: '/cate/menu', payload }).then((res) => {
+    return fetch({ url: API_CATE, payload }).then((res) => {
       dispatch({
         type: CATE_MENU,
-        payload: res.data
+        payload: res
       })
       return res
     })
@@ -18,7 +16,7 @@ export const dispatchMenu = (payload) => {
 
 export const dispatchList = (payload) => {
   return (dispatch) => {
-    return fetch({ url: '/cate/list', payload }).then((res) => {
+    return fetch({ url: '', payload }).then((res) => {
       dispatch({
         type: CATE_LIST,
         payload: res.data

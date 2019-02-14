@@ -20,27 +20,25 @@ class Cate extends Component {
   }
 
   componentDidMount() {
-    getWindowHeight()
     this.props.dispatchMenu().then((res) => {
-      this.loadList(res.data.list[0] && res.data.list[0].id)
+      if (this.state.current === -1) {
+        this.setState({ current: res.categoryList[0].id })
+      }
     })
   }
 
-  loadList = (id) => {
-    this.setState({ current: id })
-    return this.props.dispatchList({ id })
-  }
-
   handleMenu = (id) => {
-    this.setState({ loading: true })
-    this.loadList(id).then(() => {
-      this.setState({ loading: false })
+    this.setState({ loading: true }, () => {
+      this.setState({ current: id, loading: false })
     })
   }
 
   render () {
-    const { menu, list, banner } = this.props
+    const { menu, category } = this.props
     const { current, loading } = this.state
+    const currentCategory = category.find(item => item.id === current) || {}
+    const banner = currentCategory.focusBannerList || []
+    const list = currentCategory.categoryGroupList || []
     const height = getWindowHeight()
 
     return (
