@@ -1,3 +1,5 @@
+@import "@styles/theme.scss";
+
 $height: 270px;
 $avatarSize: 140px;
 
@@ -50,7 +52,26 @@ $avatarSize: 140px;
     line-height: 36px;
   }
 
-  &-type {
+  &-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 28px;
+  }
+
+  &-level {
+    margin-right: 12px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &-uid {
+    color: $text-color-light;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  &-tip {
     margin-top: 28px;
     color: rgba(0, 0, 0, 0.3);
     font-size: 28px;

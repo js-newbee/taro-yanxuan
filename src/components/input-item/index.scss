@@ -1,0 +1,36 @@
+@import '@styles/theme.scss';
+
+$height: 106px;
+
+.comp-input-item {
+  position: relative;
+  border: 0 solid #d8d8d8;
+  border-bottom-width: 1px;
+}
+
+.comp-input-item__input {
+  height: $height;
+  color: #000000;
+  font-size: 24px;
+
+  &--placeholder {
+    color: $text-color-light;
+  }
+}
+
+.comp-input-item__clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: $height;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &-img {
+    width: 30px;
+    height: 30px;
+  }
+}

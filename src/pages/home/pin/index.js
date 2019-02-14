@@ -3,7 +3,7 @@ import { View, Text, Swiper, SwiperItem, Image } from '@tarojs/components'
 import { HomeTitle } from '@components'
 import './index.scss'
 
-export default class HomeSwiper extends Component {
+export default class Pin extends Component {
   static defaultProps = {
     list: []
   }
@@ -16,6 +16,7 @@ export default class HomeSwiper extends Component {
 
   render () {
     const list = this.getList()
+    return null
 
     return (
       <View className='home-pin'>

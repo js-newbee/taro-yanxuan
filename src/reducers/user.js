@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 import {
   USER_LOGIN, USER_LOGOUT
 } from '@constants/user'
@@ -11,7 +12,10 @@ export default function user(state = INITIAL_STATE, action) {
     case USER_LOGIN: {
       return {
         ...state,
-        userInfo: action.payload
+        userInfo: {
+          ...action.payload,
+          login: true
+        }
       }
     }
     case USER_LOGOUT: {

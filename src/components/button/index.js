@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Button, Text } from '@tarojs/components'
+import { postcss } from '@utils/style'
 import classNames from 'classnames'
 import './index.scss'
 
@@ -28,7 +29,7 @@ export default class ButtonItem extends Component {
     return (
       <Button
         className={this.getCls('comp-button')}
-        style={compStyle}
+        style={postcss(compStyle)}
         loading={loading}
         disabled={disabled}
         onClick={onClick}

@@ -1,8 +1,6 @@
 /* weapp */
 page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  height: 100%;
 }
 
 view {
@@ -23,6 +21,10 @@ button {
 /*postcss-pxtransform rn eject enable*/
 div {
   box-sizing: border-box;
+}
+
+button {
+  outline: none;
 }
 
 .taro-text {

@@ -60,10 +60,17 @@ const COUNT_LINE = 3
 
 export default class Menu extends Component {
   handleClick = (menu) => {
-    Taro.showToast({
-      title: `点击了${menu.text}`,
-      icon: 'none'
-    })
+    // TODO 时间关系，只做了订单页
+    if (menu.key === 'order') {
+      Taro.navigateTo({
+        url: '/user-order/user-order'
+      })
+    } else {
+      Taro.showToast({
+        title: '目前只实现了我的订单~',
+        icon: 'none'
+      })
+    }
   }
 
   render () {

@@ -19,8 +19,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* XXX 大写的 px 不会被编译成 rpx、em */
-    border: 1PX solid #333333;
+    border: 2px solid #333333;
     border-radius: 28px;
   }
 

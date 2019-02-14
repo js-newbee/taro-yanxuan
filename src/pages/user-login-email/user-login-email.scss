@@ -1,0 +1,47 @@
+@import '@styles/theme.scss';
+
+.user-login-email {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding: 0 40px;
+  background: #ffffff;
+}
+
+.user-login-email__logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+
+  &-img {
+    width: 268px;
+    height: 90px;
+  }
+}
+
+.user-login-email__wrap {
+  position: relative;
+}
+
+.user-login-email__suggest {
+  position: absolute;
+  top: 108px;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  background: #ffffff;
+
+  &-item {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-txt {
+      color: $text-color;
+      font-size: 24px;
+    }
+  }
+}

@@ -9,9 +9,14 @@ import Activity from './activity'
 import './user.scss'
 
 @connect(state => state.user, actions)
-class Index extends Component {
+class User extends Component {
   config = {
     navigationBarTitleText: '个人中心'
+  }
+
+  componentDidShow() {
+    /* FIXEDME 跳转到 user-login 时会再次触发 didMount，需要看看是哪里的问题 */
+    this.props.dispatchUser()
   }
 
   handleLogin = () => {
@@ -22,7 +27,6 @@ class Index extends Component {
 
   render () {
     const { userInfo } = this.props
-    const isLogin = !!userInfo.id
 
     return (
       <View className='user'>
@@ -33,7 +37,7 @@ class Index extends Component {
         >
           <Profile userInfo={userInfo} />
           <Menu />
-          {isLogin &&
+          {userInfo.login &&
             <View className='user__logout' onClick={this.handleLogin}>
               <Text className='user__logout-txt'>切换账号</Text>
             </View>
@@ -48,4 +52,4 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default User

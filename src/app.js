@@ -23,7 +23,8 @@ class App extends Component {
       'pages/cate/cate',
       'pages/cart/cart',
       'pages/user/user',
-      'pages/user-login/user-login'
+      'pages/user-login/user-login',
+      'pages/user-login-email/user-login-email'
     ],
     window: {
       backgroundTextStyle: 'light',

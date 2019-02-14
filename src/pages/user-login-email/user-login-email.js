@@ -1,0 +1,123 @@
+import Taro, { Component } from '@tarojs/taro'
+import { View, Text, Image } from '@tarojs/components'
+import md5 from 'blueimp-md5'
+import { connect } from '@tarojs/redux'
+import * as actions from '@actions/user'
+import { ButtonItem, InputItem } from '@components'
+import { CDN } from '@constants/api'
+import './user-login-email.scss'
+
+const LOGO = `${CDN}/6dbf208804386f12aa9e662d82abe563.png`
+const EMAIL_SUFFIX = [
+  '163.com', '126.com', 'yeah.net', 'vip.163.com', 'vip.126.com'
+]
+
+@connect(state => state.user, actions)
+class UserLoginEmail extends Component {
+  config = {
+    navigationBarTitleText: '登录'
+  }
+
+  state = {
+    username: '',
+    password: '',
+    isShowSuggest: false,
+    loading: false
+  }
+
+  handleInput = (key, value) => {
+    this.setState({ [key]: value })
+    if (key === 'username') {
+      const isFinish = /\.com$/.test(value)
+      if (!this.state.isShowSuggest && value && !isFinish) {
+        this.setState({ isShowSuggest: true })
+      } else if (this.state.isShowSuggest && (!value || isFinish)) {
+        this.setState({ isShowSuggest: false })
+      }
+    }
+  }
+
+  handleBlur = () => {
+    if (this.state.isShowSuggest) {
+      this.setState({ isShowSuggest: false })
+    }
+  }
+
+  handleSuggest = (value) => {
+    this.handleInput('username', value)
+  }
+
+  handleLogin = () => {
+    const payload = {
+      username: this.state.username,
+      password: md5(this.state.password)
+    }
+    this.setState({ loading: true })
+    this.props.dispatchLogin(payload).then(() => {
+      this.setState({ loading: false })
+      Taro.navigateBack({ delta: 2 })
+    }).catch(() => {
+      this.setState({ loading: false })
+    })
+  }
+
+  render () {
+    const { username, password, isShowSuggest, loading } = this.state
+    const isBtnDisabled = !username || !password
+
+    // TODO 这边的 input 有个 autoFocus 的逻辑，暂未实现
+    return (
+      <View className='user-login-email'>
+        <View className='user-login-email__logo'>
+          <Image src={LOGO} className='user-login-email__logo-img' />
+        </View>
+        <View className='user-login-email__wrap'>
+          <InputItem
+            value={username}
+            placeholder='邮箱账号'
+            onInput={this.handleInput.bind(this, 'username')}
+            onBlur={this.handleBlur}
+          />
+          <InputItem
+            password
+            value={password}
+            placeholder='密码'
+            onInput={this.handleInput.bind(this, 'password')}
+          />
+          {isShowSuggest &&
+            <View className='user-login-email__suggest'>
+              {EMAIL_SUFFIX.map((suffix, index) => {
+                const value = `${username}@${suffix}`
+                return (
+                  <View
+                    key={index}
+                    className='user-login-email__suggest-item'
+                    onClick={this.handleSuggest.bind(this, value)}
+                  >
+                    <Text className='user-login-email__suggest-item-txt'>{value}</Text>
+                  </View>
+                )
+              })}
+            </View>
+          }
+        </View>
+        <ButtonItem
+          text='登录'
+          disabled={isBtnDisabled}
+          loading={loading}
+          onClick={this.handleLogin}
+          compStyle={{
+            marginTop: Taro.pxTransform(60),
+            background: '#b59f7b',
+            borderRadius: Taro.pxTransform(4)
+          }}
+          textStyle={{
+            color: isBtnDisabled ? 'rgba(255, 255, 255, 0.4)' : '#ffffff'
+          }}
+        />
+      </View>
+    )
+  }
+}
+
+export default UserLoginEmail
