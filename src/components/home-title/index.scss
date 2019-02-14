@@ -18,6 +18,19 @@
 }
 
 .comp-home-title__link {
-  font-size: 28px;
-  color: $text-color-light;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-txt {
+    font-size: 26px;
+    line-height: 26px;
+    color: $text-color-light;
+  }
+
+  &-img {
+    margin-left: 10px;
+    width: 14px;
+    height: 24px;
+  }
 }

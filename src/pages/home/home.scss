@@ -19,12 +19,20 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    // TODO RN 上 Clickable 的处理有问题，这边的 width 实际是多余的
+    width: 100%;
     border: 2px solid #333333;
     border-radius: 28px;
   }
 
+  &-img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
   &-txt {
-    color: $text-color;
+    color: $text-color-light;
     font-size: 28px;
     line-height: 28px;
   }

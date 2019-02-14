@@ -1,16 +1,136 @@
 @import "@styles/theme.scss";
 
 .home-operation {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   margin-top: 20px;
   padding: 30px 25px;
   background: #ffffff;
 }
 
-.home-operation__item {
-  margin: 0 5px;
-  width: 226px;
-  height: 280px;
+.home-operation__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-item {
+    margin: 5px;
+    width: 226px;
+    height: 280px;
+  }
+}
+
+.home-operation__wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-operation__coupon {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 30px 10px 0;
+  width: 434px;
+  height: 242px;
+  background: #fef5e5;
+  border-radius: 4px;
+
+  &-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &-txt {
+      color: $black;
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 28px;
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    padding-top: 16px;
+  }
+
+  &-name {
+    color: $black;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 28px;
+  }
+
+  &-link {
+    margin-top: 14px;
+    color: $text-color-lighter;
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.home-operation__bargain {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  padding: 30px 0 0;
+  width: 252px;
+  height: 242px;
+  background: #fef5e5;
+  border-radius: 4px;
+
+  &-txt {
+    color: $black;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 28px;
+  }
+
+  &-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  &-info {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 94px;
+    height: 94px;
+    background: #fd8925;
+    border-radius: 47px;
+  }
+
+  &-price {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 28px;
+  }
+
+  &-origin {
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 24px;
+    text-decoration: line-through;
+    text-decoration-color: #ffffff;
+  }
 }

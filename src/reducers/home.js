@@ -1,9 +1,11 @@
 import {
-  HOME_INFO, HOME_RECOMMEND
+  HOME_INFO, HOME_SEARCH_COUNT, HOME_RECOMMEND, HOME_PIN
 } from '@constants/home'
 
 const INITIAL_STATE = {
-  banner: [],
+  homeInfo: {},
+  searchCount: 0,
+  pin: [],
   recommend: []
 }
 
@@ -12,13 +14,31 @@ export default function home(state = INITIAL_STATE, action) {
     case HOME_INFO: {
       return {
         ...state,
-        banner: action.payload.banner
+        homeInfo: action.payload
       }
+    }
+    case HOME_SEARCH_COUNT: {
+      return {
+        ...state,
+        searchCount: action.payload.count
+      }
+    }
+    case HOME_PIN: {
+      // 每3个分成一组
+      const pin = []
+      action.payload.forEach((item, index) => {
+        const groupIndex = parseInt(index / 3)
+        if (!pin[groupIndex]) {
+          pin[groupIndex] = []
+        }
+        pin[groupIndex].push(item)
+      })
+      return { ...state, pin }
     }
     case HOME_RECOMMEND: {
       return {
         ...state,
-        recommend: action.payload.list
+        recommend: state.recommend.concat(action.payload.itemList)
       }
     }
     default:

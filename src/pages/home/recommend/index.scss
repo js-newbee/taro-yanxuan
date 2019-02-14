@@ -13,7 +13,7 @@
   height: 100px;
 
   &-txt {
-    color: #000000;
+    color: $black;
     font-size: 28px;
     line-height: 28px;
     font-weight: bold;
@@ -29,7 +29,7 @@
   &-item {
     display: flex;
     flex-direction: column;
-    padding: 0 15px 48px;
+    padding: 0 15px 40px;
 
     /* TODO RN 的 Clickable 处理有问题，暂时用 flex-basis 实现 width */
     /*postcss-pxtransform rn eject enable*/
@@ -79,7 +79,7 @@
     }
 
     &-price {
-      color: #000000;
+      color: $primary-color;
       font-size: 32px;
       line-height: 48px;
     }
@@ -98,17 +98,22 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-top: 10px;
       padding: 0 10px;
       height: 70px;
       border-radius: 35px;
-      background: #fafafa;
+      background: #f3f3f3;
 
       &-img {
         width: 50px;
         height: 50px;
+        border-radius: 25px;
       }
 
       &-txt {
+        flex: 1;
+        margin-left: 10px;
+        color: $text-color-lighter;
         font-size: 24px;
         line-height: 30px;
       }

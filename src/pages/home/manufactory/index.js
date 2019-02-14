@@ -5,19 +5,22 @@ import './index.scss'
 
 export default class Manufactory extends Component {
   static defaultProps = {
-    list: [],
+    data: {},
     boss: []
   }
 
   render () {
-    const { list, boss } = this.props
+    const { data, boss } = this.props
+    const { title, manufactoryList = [] } = data
+
     return (
       <View className='home-manufactory'>
         <HomeTitle
-          title='品牌制造商直供'
+          title={title}
+          link='#'
         />
         <View className='home-manufactory__list'>
-          {list.map(item => (
+          {manufactoryList.map(item => (
             <View key={item.tagId} className='home-manufactory__list-item'>
               <Image src={item.picUrl} className='home-manufactory__list-item-img' />
               <View className='home-manufactory__list-item-name'>

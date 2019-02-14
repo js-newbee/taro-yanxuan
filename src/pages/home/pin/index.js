@@ -5,40 +5,53 @@ import './index.scss'
 
 export default class Pin extends Component {
   static defaultProps = {
+    banner: {},
     list: []
   }
 
-  getList = () => {
-    // 每3个分成一组
-    const { list } = this.props
-    return []
-  }
-
   render () {
-    const list = this.getList()
-    return null
-
+    const { banner: { picUrls = [] }, list } = this.props
     return (
       <View className='home-pin'>
+        <View className='home-pin__banner'>
+          {picUrls.map((item, index) => (
+            <View key={index} className='home-pin__banner-item'>
+              <Image
+                className='home-pin__banner-item-img'
+                src={item}
+                mode='widthFix'
+              />
+            </View>
+          ))}
+        </View>
+
         <HomeTitle
           title='免邮拼团'
+          link='#'
         />
         <Swiper
-          className='home-pin__wrap'
-          circular
+          className='home-pin__swiper'
           autoplay
           indicatorDots
           indicatorActiveColor='rgb(178, 42, 49)'
         >
-          {list.map(item => (
+          {list.map((group, index) => (
             <SwiperItem
-              key={item.index}
-              className='home-pin__item'
+              key={index}
+              className='home-pin__swiper-item'
             >
-              <Image
-                className='home-pin__item-img'
-                src={item.img}
-              />
+              {group.map(item => (
+                <View key={item.id} className='home-pin__item'>
+                  <Image
+                    className='home-pin__item-img'
+                    src={item.picUrl}
+                  />
+                  <View className='home-pin__item-info'>
+                    <Text className='home-pin__item-price'>{`拼团价¥${item.price}`}</Text>
+                    <Text className='home-pin__item-origin'>¥{item.originPrice}</Text>
+                  </View>
+                </View>
+              ))}
             </SwiperItem>
           ))}
         </Swiper>

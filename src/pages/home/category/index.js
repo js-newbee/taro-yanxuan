@@ -6,18 +6,18 @@ import './index.scss'
 
 export default class Category extends Component {
   static defaultProps = {
-    list: []
+    data: {}
   }
 
   render () {
-    const { list } = this.props
+    const { data: { title, categoryList = [] } } = this.props
     return (
       <View className='home-category'>
         <HomeTitle
-          title='类目热销榜'
+          title={title}
         />
         <View className='home-category__two'>
-          {list.slice(0, 2).map((item, index) => (
+          {categoryList.slice(0, 2).map((item, index) => (
             <View
               key={index}
               className={classNames('home-category__two-item',
@@ -33,7 +33,7 @@ export default class Category extends Component {
           ))}
         </View>
         <View className='home-category__list'>
-          {list.slice(2, 10).map((item, index) => (
+          {categoryList.slice(2, 10).map((item, index) => (
             <View key={index} className='home-category__list-item'>
               <Text className='home-category__list-item-name'>{item.categoryName}</Text>
               <Image className='home-category__list-item-img' src={item.picUrl} />

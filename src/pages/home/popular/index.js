@@ -1,24 +1,43 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { HomeTitle, Tag } from '@components'
+import imgBg from './assets/img-bg.png'
 import './index.scss'
 
 export default class Popular extends Component {
   static defaultProps = {
-    list: []
+    data: {}
   }
 
   render () {
-    const { list } = this.props
+    const { data: { title, itemList = [] } } = this.props
+
     return (
       <View className='home-popular'>
         <HomeTitle
-          title='人气推荐'
+          title={title}
+          link='#'
         />
         <View className='home-popular__show'>
+          {itemList.slice(0, 1).map(item => (
+            <View key={item.id} className='home-popular__show-item'>
+              <Image className='home-popular__show-item-bg' src={imgBg} />
+              <Image className='home-popular__show-item-img' src={item.listPicUrl} />
+              <View className='home-popular__show-item-info'>
+                {item.limitedTag &&
+                  <Tag text={item.limitedTag} />
+                }
+                <Text className='home-popular__show-item-name'>{item.name}</Text>
+                <Text className='home-popular__show-item-desc'>{item.simpleDesc}</Text>
+                <Text className='home-popular__show-item-price'>
+                  {` ¥${item.activityPrice || item.retailPrice}`}
+                </Text>
+              </View>
+            </View>
+          ))}
         </View>
         <View className='home-popular__list'>
-          {list.slice(0, 3).map(item => (
+          {itemList.slice(1, 4).map(item => (
             <View key={item.id} className='home-popular__list-item'>
               <Image
                 className='home-popular__list-item-img'
@@ -31,7 +50,7 @@ export default class Popular extends Component {
                 <Text className='home-popular__list-item-name'>
                   {item.name}
                   <Text className='home-popular__list-item-price'>
-                    {` ¥${item.activityPrice}`}
+                    {` ¥${item.activityPrice || item.retailPrice}`}
                   </Text>
                 </Text>
               </View>

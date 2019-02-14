@@ -5,14 +5,13 @@ import './index.scss'
 
 export default class FlashSale extends Component {
   static defaultProps = {
-    leftTime: 0,
-    list: []
+    data: {}
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      leftTime: parseInt(props.leftTime / 1000)
+      leftTime: parseInt((props.data.leftTime || 0) / 1000)
     }
     this.timer = null
   }
@@ -34,12 +33,14 @@ export default class FlashSale extends Component {
   renderNum = (num) => num >= 10 ? num : `0${num}`
 
   render () {
-    const { list } = this.props
+    const { data: { itemList = [] } } = this.props
     const { leftTime } = this.state
+
     return (
       <View className='home-flash-sale'>
         <HomeTitle
           title='限时购'
+          link='#'
         >
           <View className='home-flash-sale__cnt'>
             <Text className='home-flash-sale__cnt-time'>
@@ -57,7 +58,7 @@ export default class FlashSale extends Component {
         </HomeTitle>
 
         <View className='home-flash-sale__list'>
-          {list.map(item => (
+          {itemList.map(item => (
             <View key={item.itemId} className='home-flash-sale__list-item'>
               <Image
                 className='home-flash-sale__list-item-img'
