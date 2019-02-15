@@ -34,12 +34,7 @@ export default class Recommend extends Component {
                 {!!item.limitedTag &&
                   <Tag text={item.limitedTag} />
                 }
-
-                {/* XXX RN 上实现省略号需要用 numberOfLines 实现 */}
-                <Text
-                  className='cart-recommend__list-item-name'
-                  numberOfLines={1}
-                >
+                <Text className='cart-recommend__list-item-name' numberOfLines={1}>
                   {item.name}
                 </Text>
 

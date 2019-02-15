@@ -34,6 +34,7 @@
       display: flex;
       flex-direction: column;
       margin-left: 20px;
+      overflow: hidden;
     }
 
     &-name {
@@ -41,6 +42,7 @@
       font-size: 28px;
       font-weight: bold;
       line-height: 28px;
+      @include text-ellipsis;
     }
 
     &-desc {
@@ -48,6 +50,7 @@
       color: $text-color-lighter;
       font-size: 24px;
       line-height: 24px;
+      @include text-ellipsis;
     }
 
     &-price {

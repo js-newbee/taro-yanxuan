@@ -47,11 +47,7 @@ export default class List extends Component {
                 {!!item.tag &&
                   <Text className='cart-list__item-title-tag'>{item.tag}</Text>
                 }
-                {/* XXX RN 上实现省略号需要用 numberOfLines 实现 */}
-                <Text
-                  className='cart-list__item-title-name'
-                  numberOfLines={1}
-                >
+                <Text className='cart-list__item-title-name' numberOfLines={1}>
                   {item.itemName}
                 </Text>
               </View>

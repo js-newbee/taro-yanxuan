@@ -47,12 +47,7 @@
       color: $text-color;
       font-size: 28px;
       line-height: 40px;
-      /* XXX RN 无法通过如下方式实现省略号，只能用 Text 的属性 numberOfLines */
-      /*postcss-pxtransform rn eject enable*/
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      /*postcss-pxtransform rn eject disable*/
+      @include text-ellipsis;
     }
 
     &-price-wrap {

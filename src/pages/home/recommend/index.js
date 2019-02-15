@@ -32,18 +32,16 @@ export default class Recommend extends Component {
             >
               <Image className='home-recommend__list-item-img' src={item.listPicUrl} />
               {item.simpleDesc && !item.simpleDescClose &&
-                <Text className='home-recommend__list-item-desc'>{item.simpleDesc}</Text>
+                <Text className='home-recommend__list-item-desc' numberOfLines={1}>
+                  {item.simpleDesc}
+                </Text>
               }
               <View className='home-recommend__list-item-info'>
                 {!!item.limitedTag &&
                   <Tag text={item.limitedTag} />
                 }
 
-                {/* XXX RN 上实现省略号需要用 numberOfLines 实现 */}
-                <Text
-                  className='home-recommend__list-item-name'
-                  numberOfLines={1}
-                >
+                <Text className='home-recommend__list-item-name' numberOfLines={1}>
                   {item.name}
                 </Text>
 
@@ -64,7 +62,7 @@ export default class Recommend extends Component {
                       className='home-recommend__list-item-commend-img'
                       src={item.comments[0].frontUserAvatar || defaultAvatar}
                     />
-                    <Text className='home-recommend__list-item-commend-txt'>
+                    <Text className='home-recommend__list-item-commend-txt' numberOfLines={2}>
                       {item.comments[0].content}
                     </Text>
                   </View>

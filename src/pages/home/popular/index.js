@@ -27,8 +27,12 @@ export default class Popular extends Component {
                 {item.limitedTag &&
                   <Tag text={item.limitedTag} />
                 }
-                <Text className='home-popular__show-item-name'>{item.name}</Text>
-                <Text className='home-popular__show-item-desc'>{item.simpleDesc}</Text>
+                <Text className='home-popular__show-item-name' numberOfLines={1}>
+                  {item.name}
+                </Text>
+                <Text className='home-popular__show-item-desc' numberOfLines={1}>
+                  {item.simpleDesc}
+                </Text>
                 <Text className='home-popular__show-item-price'>
                   {` ¥${item.activityPrice || item.retailPrice}`}
                 </Text>
