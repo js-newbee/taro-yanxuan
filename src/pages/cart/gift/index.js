@@ -2,11 +2,9 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-const SATISFY_AMOUNT = 499
-
 export default class Gift extends Component {
   static defaultProps = {
-    amount: 0
+    data: {}
   }
 
   handleClick = () => {
@@ -17,22 +15,20 @@ export default class Gift extends Component {
   }
 
   render () {
-    const { amount } = this.props
-    let text = `再购${SATISFY_AMOUNT}元立享满${SATISFY_AMOUNT}元领取赠品`
-    if (amount) {
-      text = amount > SATISFY_AMOUNT ?
-        `已满足满${SATISFY_AMOUNT}元领取赠品` :
-        `再购${parseFloat(SATISFY_AMOUNT - amount).toFixed(2)}元立享满${SATISFY_AMOUNT}元领取赠品`
+    const { data } = this.props
+    if (!data.promId) {
+      return null
     }
+
     return (
       <View className='cart-gift'>
-        <Text className='cart-gift__tag'>全场满赠</Text>
+        <Text className='cart-gift__tag'>{data.promTitle}</Text>
         <Text className='cart-gift__txt'>
-          {text}
+          {data.promTip}
         </Text>
         <Text className='cart-gift__arrow'>{'>'}</Text>
         <View className='cart-gift__line' />
-        <Text className='cart-gift__link'>查看赠品</Text>
+        <Text className='cart-gift__link'>{data.jumpTitle}</Text>
       </View>
     )
   }

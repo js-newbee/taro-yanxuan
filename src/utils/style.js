@@ -32,7 +32,7 @@ export function postcss(style) {
   const newStyle = {}
   if (background) {
     // RN 不支持 background
-    newStyle.backgroundColor = newStyle.background
+    newStyle.backgroundColor = background
   }
   return { ...restStyle, ...newStyle }
 }

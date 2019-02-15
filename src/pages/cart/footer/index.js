@@ -5,7 +5,7 @@ import './index.scss'
 
 export default class Footer extends Component {
   static defaultProps = {
-    list: [],
+    cartInfo: {},
     onToggle: () => {}
   }
 
@@ -17,22 +17,22 @@ export default class Footer extends Component {
   }
 
   render () {
-    const { selectedCount, amount, onToggle } = this.props
+    const { cartInfo, onToggle } = this.props
     return (
       <View className='cart-footer'>
         <View className='cart-footer__select'>
           <CheckboxItem
-            checked={!!selectedCount}
+            checked={!!cartInfo.selectedCount}
             onClick={onToggle}
           >
             <Text className='cart-footer__select-txt'>
-              {selectedCount ? `已选(${selectedCount})` : '全选'}
+              {cartInfo.canAllChecked ? '全选' : `已选(${cartInfo.selectedCount})`}
             </Text>
           </CheckboxItem>
         </View>
         <View className='cart-footer__amount'>
           <Text className='cart-footer__amount-txt'>
-            ¥{parseFloat(amount).toFixed(2)}
+            ¥{parseFloat(cartInfo.actualPrice).toFixed(2)}
           </Text>
         </View>
         <View className='cart-footer__btn'>

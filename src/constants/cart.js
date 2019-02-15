@@ -1,3 +1,5 @@
+export const CART_INFO = 'CART_INFO'
+export const CART_NUM = 'CART_NUM'
 export const CART_RECOMMEND = 'CART_RECOMMEND'
 export const CART_ADD_ITEM = 'CART_ADD_ITEM'
 export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM'

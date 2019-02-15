@@ -1,13 +1,13 @@
 import Taro from '@tarojs/taro'
 import {
-  CART_RECOMMEND,
+  CART_INFO, CART_NUM, CART_RECOMMEND,
   CART_ADD_ITEM, CART_REMOVE_ITEM, CART_UPDATE_ITEM,
   CART_TOGGLE_ITEM, CART_TOGGLE_ALL
 } from '@constants/cart'
 
 const INITIAL_STATE = {
-  recommend: [],
-  // item: { id, selected, num ... }
+  cartInfo: {},
+  recommend: {},
   list: []
 }
 
@@ -27,10 +27,20 @@ const updateTabBar = (count) => {
 
 export default function cart(state = INITIAL_STATE, action) {
   switch(action.type) {
+    case CART_INFO: {
+      return {
+        ...state,
+        cartInfo: action.payload
+      }
+    }
+    case CART_NUM: {
+      updateTabBar(action.payload.countCornerMark)
+      return state
+    }
     case CART_RECOMMEND: {
       return {
         ...state,
-        recommend: action.payload.list
+        recommend: action.payload
       }
     }
     case CART_ADD_ITEM: {

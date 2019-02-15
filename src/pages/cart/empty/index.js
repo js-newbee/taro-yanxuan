@@ -11,7 +11,9 @@ export default class Empty extends Component {
           className='cart-empty__img'
           src={empty}
         />
-        <Text className='cart-empty__txt'>去添加点什么吧</Text>
+        <Text className='cart-empty__txt'>
+          {this.props.text || '去添加点什么吧'}
+        </Text>
       </View>
     )
   }

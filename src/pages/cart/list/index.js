@@ -35,12 +35,12 @@ export default class List extends Component {
             className='cart-list__item'
           >
             <CheckboxItem
-              checked={this.isSelected(item.id)}
+              checked={item.checked}
               onClick={this.handleToggle.bind(this, item)}
             />
             <Image
               className='cart-list__item-img'
-              src={item.img}
+              src={item.pic}
             />
             <View className='cart-list__item-info'>
               <View className='cart-list__item-title'>
@@ -52,21 +52,23 @@ export default class List extends Component {
                   className='cart-list__item-title-name'
                   numberOfLines={1}
                 >
-                  {item.name}
+                  {item.itemName}
                 </Text>
               </View>
 
               <View className='cart-list__item-spec'>
-                <Text className='cart-list__item-spec-txt'>{item.spec.join(' ')}</Text>
+                <Text className='cart-list__item-spec-txt'>
+                  {item.specList.map(sepc => sepc.specValue).join(' ')}
+                </Text>
               </View>
 
               <View className='cart-list__item-wrap'>
                 <Text className='cart-list__item-price'>
-                  ¥{item.price}
+                  ¥{item.actualPrice}
                 </Text>
                 <View className='cart-list__item-num'>
                   <InputNumber
-                    num={item.num}
+                    num={item.cnt}
                     onChange={this.handleUpdate.bind(this, item)}
                   />
                 </View>

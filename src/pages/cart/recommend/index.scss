@@ -1,23 +1,16 @@
 @import "@styles/theme.scss";
 
 .cart-recommend {
-  margin-top: 40px;
+  margin-top: 20px;
   background: #ffffff;
 }
 
 .cart-recommend__title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 0 30px;
   height: 100px;
-
-  &-txt {
-    color: #000000;
-    font-size: 28px;
-    line-height: 28px;
-    font-weight: bold;
-  }
 }
 
 .cart-recommend__list {

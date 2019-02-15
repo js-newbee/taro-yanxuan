@@ -20,7 +20,7 @@ export default class Recommend extends Component {
     return (
       <View className='cart-recommend'>
         <View className='cart-recommend__title'>
-          <Text className='cart-recommend__title-txt'>猜你喜欢</Text>
+          {this.props.children}
         </View>
         <View className='cart-recommend__list'>
           {list.map(item => (
@@ -29,10 +29,10 @@ export default class Recommend extends Component {
               className='cart-recommend__list-item'
               onClick={this.handleClick.bind(this, item)}
             >
-              <Image className='cart-recommend__list-item-img' src={item.img} />
+              <Image className='cart-recommend__list-item-img' src={item.listPicUrl} />
               <View className='cart-recommend__list-item-info'>
-                {!!item.tag &&
-                  <Tag text={item.tag} />
+                {!!item.limitedTag &&
+                  <Tag text={item.limitedTag} />
                 }
 
                 {/* XXX RN 上实现省略号需要用 numberOfLines 实现 */}
@@ -44,10 +44,12 @@ export default class Recommend extends Component {
                 </Text>
 
                 <View className='cart-recommend__list-item-price-wrap'>
-                  <Text className='cart-recommend__list-item-price'>¥{item.price}</Text>
-                  {item.originalPrice &&
+                  <Text className='cart-recommend__list-item-price'>
+                    ¥{item.activityPrice || item.retailPrice}
+                  </Text>
+                  {!!item.activityPrice &&
                     <Text className='cart-recommend__list-item-price--origin'>
-                      ¥{item.originalPrice}
+                      ¥{item.retailPrice}
                     </Text>
                   }
                 </View>

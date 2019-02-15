@@ -16,8 +16,11 @@ export const API_HOME_RECOMMEND = `${host}/xhr/rcmd/index.json`
 export const API_CATE = `${host}/xhr/list/category.json`
 
 // cart
+export const API_CART = `${host}/xhr/promotionCart/getCarts.json`
 export const API_CART_NUM = `${host}/xhr/promotionCart/getMiniCartNum.json`
+export const API_CART_RECOMMEND = `${host}/xhr/rcmd/cart.json`
 
 // user
 export const API_USER = `${host}/xhr/user/getDetail.json`
 export const API_USER_LOGIN = `${host}/xhr/u/mailLogin.json`
+export const API_CHECK_LOGIN = `${host}/xhr/u/checkLogin.json`
