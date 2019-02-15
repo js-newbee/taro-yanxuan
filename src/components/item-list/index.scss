@@ -1,0 +1,75 @@
+@import "@styles/theme.scss";
+
+.comp-item-list {
+  margin-top: 20px;
+  background: #ffffff;
+}
+
+.comp-item-list__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px;
+  height: 100px;
+}
+
+.comp-item-list__wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.comp-item-list__item {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 48px;
+
+  /* TODO RN 的 Clickable 处理有问题，暂时用 flex-basis 实现 width */
+  /*postcss-pxtransform rn eject enable*/
+  width: 50%;
+  /*postcss-pxtransform rn eject disable*/
+  flex-basis: 50%;
+
+  &-img {
+    width: 330px;
+    height: 330px;
+    background: #f4f4f4;
+    border-radius: 4px;
+  }
+
+  &-info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-name {
+    color: $text-color;
+    font-size: 28px;
+    line-height: 40px;
+    @include text-ellipsis;
+  }
+
+  &-price-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-price {
+    color: #000000;
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  &-price--origin {
+    margin-left: 14px;
+    color: $text-color-lighter;
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 48px;
+    text-decoration: line-through;
+    text-decoration-color: $text-color-lighter;
+  }
+}

@@ -9,10 +9,8 @@ export default class List extends Component {
   }
 
   handleClick = (item) => {
-    // TODO 根据 item.id 进入下级页面
-    Taro.showToast({
-      title: '敬请期待',
-      icon: 'none'
+    Taro.navigateTo({
+      url: `/pages/cate-sub/cate-sub?id=${item.id}&categoryId=${item.superCategoryId}`
     })
   }
 
@@ -34,7 +32,7 @@ export default class List extends Component {
                   className={classNames('cate-list__item',
                     { 'cate-list__item--right': (index + 1) % 3 === 0 }
                   )}
-                  onClick={this.handleClick}
+                  onClick={this.handleClick.bind(this, item)}
                 >
                   <Image className='cate-list__item-img' src={item.bannerUrl} />
                   <View className='cate-list__item-txt-wrap'>

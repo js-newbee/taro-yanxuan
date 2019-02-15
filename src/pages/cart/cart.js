@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
-import { ButtonItem } from '@components'
+import { ButtonItem, ItemList } from '@components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/cart'
 import { API_CHECK_LOGIN } from '@constants/api'
@@ -10,7 +10,6 @@ import Tip from './tip'
 import Gift from './gift'
 import Empty from './empty'
 import List from './list'
-import Recommend from './recommend'
 import Footer from './footer'
 import './cart.scss'
 
@@ -44,12 +43,10 @@ class Index extends Component {
   }
 
   render () {
-    const { cartInfo, list, recommend } = this.props
+    const { cartInfo, recommend } = this.props
     const { cartGroupList = [] } = cartInfo
     const cartList = (cartGroupList[1] && cartGroupList[1].cartItemList) || []
     const extList = recommend.extList || []
-    const selected = list.filter(item => item.selected)
-    const amount = selected.reduce((prev, next) => prev + next.price, 0)
     const isEmpty = !cartList.length
     const isShowFooter = !isEmpty
 
@@ -93,20 +90,20 @@ class Index extends Component {
 
           {/* 相关推荐 */}
           {extList.map((ext, index) => (
-            <Recommend key={index} list={ext.itemList}>
+            <ItemList key={index} list={ext.itemList}>
               <View className='cart__ext'>
                 {!!ext.picUrl && <Image className='cart__ext-img' src={ext.picUrl} />}
                 <Text className='cart__ext-txt'>{ext.desc}</Text>
               </View>
-            </Recommend>
+            </ItemList>
           ))}
 
           {/* 猜你喜欢 */}
-          <Recommend list={recommend.itemList}>
+          <ItemList list={recommend.itemList}>
             <View className='cart__recommend'>
               <Text className='cart__recommend-txt'>{recommend.desc}</Text>
             </View>
-          </Recommend>
+          </ItemList>
 
           {isShowFooter &&
             <View className='cart__footer--placeholder' />

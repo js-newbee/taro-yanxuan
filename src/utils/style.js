@@ -5,15 +5,17 @@ const TAB_BAR_HEIGHT = 50
 
 /**
  * TODO Taro 可用高度的计算有问题
+ * @param {*} showTabBar
  */
-export function getWindowHeight() {
+export function getWindowHeight(showTabBar = true) {
   const info = Taro.getSystemInfoSync()
   const { windowHeight, statusBarHeight } = info
+  const tabBarHeight = showTabBar ? TAB_BAR_HEIGHT : 0
 
   if (process.env.TARO_ENV === 'rn') {
-    return windowHeight - statusBarHeight - NAVIGATOR_HEIGHT - TAB_BAR_HEIGHT
+    return windowHeight - statusBarHeight - NAVIGATOR_HEIGHT - tabBarHeight
   } else if (process.env.TARO_ENV === 'h5') {
-    return `${windowHeight - TAB_BAR_HEIGHT}px`
+    return `${windowHeight - tabBarHeight}px`
   }
 
   return `${windowHeight}px`
