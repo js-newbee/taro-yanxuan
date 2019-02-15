@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
+import jump from '@utils/jump'
 import classNames from 'classnames'
 import './index.scss'
 
@@ -54,20 +55,19 @@ const MENU_LIST = [{
 }, {
   key: 'help',
   text: '帮助中心',
+  url: 'http://m.you.163.com/help/new',
   img: require('./assets/help.png')
 }]
 const COUNT_LINE = 3
 
 export default class Menu extends Component {
   handleClick = (menu) => {
-    // TODO 时间关系，只做了订单页
-    if (menu.key === 'order') {
-      Taro.navigateTo({
-        url: '/user-order/user-order'
-      })
+    // TODO 时间关系，此处只实现帮助中心，演示多端 webview
+    if (menu.key === 'help') {
+      jump({ url: menu.url, title: menu.text })
     } else {
       Taro.showToast({
-        title: '目前只实现了我的订单~',
+        title: '目前只实现了帮助中心~',
         icon: 'none'
       })
     }
