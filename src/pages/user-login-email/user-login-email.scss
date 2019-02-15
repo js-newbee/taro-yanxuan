@@ -23,13 +23,14 @@
 
 .user-login-email__wrap {
   position: relative;
+  z-index: 2;
 }
 
 .user-login-email__suggest {
   position: absolute;
   top: 108px;
   left: 0;
-  z-index: 99;
+  z-index: 9;
   width: 100%;
   background: #ffffff;
 
@@ -44,4 +45,10 @@
       font-size: 24px;
     }
   }
+}
+
+.user-login-email__btn {
+  position: relative;
+  margin-top: 60px;
+  z-index: 1;
 }

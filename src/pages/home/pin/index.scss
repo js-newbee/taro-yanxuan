@@ -21,10 +21,11 @@
 }
 
 .home-pin__swiper {
-  margin: 0 -10px;
   // TODO RN 中 swiper 的 indicator 位置与小程序、H5 不同，若要完全一致需要自己实现 indicator
+  margin: -60px -10px;
   height: 460px;
   /*postcss-pxtransform rn eject enable*/
+  margin: 0 -10px;
   height: 330px;
   /*postcss-pxtransform rn eject disable*/
 

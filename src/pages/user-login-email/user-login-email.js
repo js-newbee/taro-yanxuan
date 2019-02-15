@@ -56,6 +56,10 @@ class UserLoginEmail extends Component {
     this.props.dispatchLogin(payload).then(() => {
       this.setState({ loading: false })
       Taro.navigateBack({ delta: 2 })
+      // FIXME RN 的 navigateBack 参数 delta 无效，暂时用如下方式解决
+      if (process.env.TARO_ENV === 'rn') {
+        setTimeout(() => Taro.navigateBack(), 1000)
+      }
     }).catch(() => {
       this.setState({ loading: false })
     })
@@ -101,20 +105,21 @@ class UserLoginEmail extends Component {
             </View>
           }
         </View>
-        <ButtonItem
-          text='登录'
-          disabled={isBtnDisabled}
-          loading={loading}
-          onClick={this.handleLogin}
-          compStyle={{
-            marginTop: Taro.pxTransform(60),
-            background: '#b59f7b',
-            borderRadius: Taro.pxTransform(4)
-          }}
-          textStyle={{
-            color: isBtnDisabled ? 'rgba(255, 255, 255, 0.4)' : '#ffffff'
-          }}
-        />
+        <View className='user-login-email__btn'>
+          <ButtonItem
+            text='登录'
+            disabled={isBtnDisabled}
+            loading={loading}
+            onClick={this.handleLogin}
+            compStyle={{
+              background: '#b59f7b',
+              borderRadius: Taro.pxTransform(4)
+            }}
+            textStyle={{
+              color: isBtnDisabled ? 'rgba(255, 255, 255, 0.4)' : '#ffffff'
+            }}
+          />
+        </View>
       </View>
     )
   }
