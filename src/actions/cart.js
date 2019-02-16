@@ -24,6 +24,10 @@ export const dispatchCart = payload => createAction({
  */
 export const dispatchCartNum = payload => createAction({
   url: API_CART_NUM,
+  fetchOptions: {
+    showToast: false,
+    autoLogin: false
+  },
   type: CART_NUM,
   payload
 })
@@ -44,8 +48,8 @@ export const dispatchRecommend = payload => createAction({
  */
 export const dispatchAdd = payload => createAction({
   url: API_CART_ADD,
-  type: CART_ADD,
   method: 'POST',
+  type: CART_ADD,
   payload
 })
 
@@ -55,8 +59,8 @@ export const dispatchAdd = payload => createAction({
  */
 export const dispatchUpdate = payload => createAction({
   url: API_CART_UPDATE,
-  type: CART_UPDATE,
   method: 'POST',
+  type: CART_UPDATE,
   payload
 })
 
@@ -66,7 +70,7 @@ export const dispatchUpdate = payload => createAction({
  */
 export const dispatchUpdateCheck = payload => createAction({
   url: API_CART_UPDATE_CHECK,
-  type: CART_UPDATE_CHECK,
   method: 'POST',
+  type: CART_UPDATE_CHECK,
   payload
 })

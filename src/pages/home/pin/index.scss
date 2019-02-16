@@ -95,6 +95,7 @@
     border-radius: 8px 0;
     /* XXX RN 不支持 transform-origin 属性，可通过 translate 纠正 */
     transform: scale(0.5) translate(-33px, -12px);
+    @include eject(transform, scale(0.5) translate(-66px, -24px));
 
     &-txt {
       color: #ffffff;

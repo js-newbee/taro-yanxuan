@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/home'
+import { dispatchCartNum } from '@actions/cart'
 import { getWindowHeight } from '@utils/style'
 import Banner from './banner'
 import Policy from './policy'
@@ -17,7 +18,7 @@ import './home.scss'
 
 const RECOMMEND_SIZE = 20
 
-@connect(state => state.home, actions)
+@connect(state => state.home, { ...actions, dispatchCartNum })
 class Home extends Component {
   config = {
     navigationBarTitleText: '网易严选'
@@ -33,13 +34,8 @@ class Home extends Component {
   componentDidMount() {
     this.props.dispatchHome().then(() => {
       this.setState({ loaded: true })
-      // 时间关系，首页只做了最底下商品详情的页面
-      Taro.showToast({
-        title: '点击最底下推荐商品可进入详情',
-        duration: 4000,
-        icon: 'none'
-      })
     })
+    this.props.dispatchCartNum()
     this.props.dispatchSearchCount()
     this.props.dispatchPin({ orderType: 4, size: 12 })
     this.loadRecommend()
@@ -67,10 +63,10 @@ class Home extends Component {
     })
   }
 
-  toSearch = () => {
-    // TODO 搜索页
+  handlePrevent = () => {
+    // TODO 时间关系，首页只实现底部推荐商品的点击
     Taro.showToast({
-      title: '敬请期待',
+      title: '目前只可点击底部推荐商品',
       icon: 'none'
     })
   }
@@ -84,10 +80,7 @@ class Home extends Component {
     return (
       <View className='home'>
         <View className='home__search'>
-          <View
-            className='home__search-wrap'
-            onClick={this.toSearch}
-          >
+          <View className='home__search-wrap'>
             <Image className='home__search-img' src={searchIcon} />
             <Text className='home__search-txt'>
               {`搜索商品，共${searchCount}款好物`}
@@ -100,35 +93,37 @@ class Home extends Component {
           onScrollToLower={this.loadRecommend}
           style={{ height: getWindowHeight() }}
         >
-          <Banner list={homeInfo.focus} />
-          <Policy list={homeInfo.policyDesc} />
+          <View onClick={this.handlePrevent}>
+            <Banner list={homeInfo.focus} />
+            <Policy list={homeInfo.policyDesc} />
 
-          {/* 免费拼团 */}
-          <Pin
-            banner={homeInfo.newUserExclusive}
-            list={pin}
-          />
+            {/* 免费拼团 */}
+            <Pin
+              banner={homeInfo.newUserExclusive}
+              list={pin}
+            />
 
-          {/* 不知道叫啥 */}
-          <Operation
-            list={homeInfo.operationCfg}
-            sale={homeInfo.saleCenter}
-          />
+            {/* 不知道叫啥 */}
+            <Operation
+              list={homeInfo.operationCfg}
+              sale={homeInfo.saleCenter}
+            />
 
-          {/* 品牌制造 */}
-          <Manufactory
-            data={homeInfo.manufactory}
-            boss={homeInfo.dingBossRcmd}
-          />
+            {/* 品牌制造 */}
+            <Manufactory
+              data={homeInfo.manufactory}
+              boss={homeInfo.dingBossRcmd}
+            />
 
-          {/* 限时购 */}
-          <FlashSale data={homeInfo.flashSale} />
+            {/* 限时购 */}
+            <FlashSale data={homeInfo.flashSale} />
 
-          {/* 人气推荐 */}
-          <Popular data={homeInfo.popularItems} />
+            {/* 人气推荐 */}
+            <Popular data={homeInfo.popularItems} />
 
-          {/* 类目热销榜 */}
-          <Category data={homeInfo.hotCategory} />
+            {/* 类目热销榜 */}
+            <Category data={homeInfo.hotCategory} />
+          </View>
 
           {/* 为你推荐 */}
           <Recommend list={recommend} />

@@ -1,7 +1,4 @@
-import Taro from '@tarojs/taro'
-import {
-  USER_LOGIN, USER_LOGOUT
-} from '@constants/user'
+import { USER_INFO, USER_LOGIN, USER_LOGOUT } from '@constants/user'
 
 const INITIAL_STATE = {
   userInfo: {}
@@ -9,7 +6,7 @@ const INITIAL_STATE = {
 
 export default function user(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case USER_LOGIN: {
+    case USER_INFO: {
       return {
         ...state,
         userInfo: {
@@ -17,6 +14,9 @@ export default function user(state = INITIAL_STATE, action) {
           login: true
         }
       }
+    }
+    case USER_LOGIN: {
+      return { ...state }
     }
     case USER_LOGOUT: {
       return {

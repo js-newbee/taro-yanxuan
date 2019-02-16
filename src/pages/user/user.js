@@ -2,21 +2,22 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text, ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/user'
+import { dispatchCartNum } from '@actions/cart'
 import { getWindowHeight } from '@utils/style'
 import Profile from './profile'
 import Menu from './menu'
 import Activity from './activity'
 import './user.scss'
 
-@connect(state => state.user, actions)
+@connect(state => state.user, { ...actions, dispatchCartNum })
 class User extends Component {
   config = {
     navigationBarTitleText: '个人中心'
   }
 
   componentDidShow() {
-    /* FIXEDME 跳转到 user-login 时会再次触发 didMount，需要看看是哪里的问题 */
     this.props.dispatchUser()
+    this.props.dispatchCartNum()
   }
 
   handleLogin = () => {

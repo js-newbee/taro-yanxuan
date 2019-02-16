@@ -5,9 +5,9 @@
 import fetch from './request'
 
 export function createAction(options) {
-  const { url, payload, method, cb, type } = options
+  const { url, payload, method, fetchOptions, cb, type } = options
   return (dispatch) => {
-    return fetch({ url, payload, method }).then((res) => {
+    return fetch({ url, payload, method, ...fetchOptions }).then((res) => {
       dispatch({ type, payload: cb ? cb() : res })
       return res
     })
