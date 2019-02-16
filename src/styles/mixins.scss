@@ -1,10 +1,31 @@
 /**
- * 对于部分不兼容的地方，可以通过 mixins 统一处理
+ * 对于部分不兼容的样式，可以通过 mixins 统一处理
  */
 
 /**
- * XXX RN 无法通过 text-overflow 实现省略号，只能用 Text 的属性 numberOfLines
- * white-space 属性在 RN 上会报错，因此不能打包到 RN 中
+ * TODO Taro 编译成 RN 时对 border 的处理有问题
+ * RN 不支持针对某一边设置 style，即 border-bottom-style 会报错
+ * 那么 border-bottom: 1px 就需要写成如下形式：
+ * border: 0 style color; border-bottom-width: 1px;
+ */
+@mixin border($dir, $width, $style, $color) {
+  border: 0 $style $color;
+  @each $d in $dir {
+    #{border-#{$d}-width}: $width;
+  }
+}
+
+/**
+ * 对于不能打包到 RN 的样式，可以用 mixins 引入，相对美观一些
+ */
+@mixin eject($attr, $value) {
+  /*postcss-pxtransform rn eject enable*/
+  #{$attr}: $value;
+  /*postcss-pxtransform rn eject disable*/
+}
+
+/**
+ * XXX RN 无法通过 text-overflow 实现省略号，这些代码不能打包到 RN 中
  */
 @mixin text-ellipsis() {
   /*postcss-pxtransform rn eject enable*/
@@ -20,7 +41,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: $line;
-  /*! autoprefixer: off */
+  /* autoprefixer: ignore next */
   -webkit-box-orient: vertical;
   /*postcss-pxtransform rn eject disable*/
 }

@@ -15,11 +15,11 @@ export default class Banner extends Component {
 
   render () {
     const { list, current } = this.props
+    // TODO tab item 与内容区域的同步滚动
     return (
       <ScrollView
         scrollX
         className='cate-sub-tab'
-        style={{ width: '100%' }}
       >
         {list.map((item, index) => (
           <View

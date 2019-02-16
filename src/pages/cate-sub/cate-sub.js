@@ -16,17 +16,21 @@ class CateSub extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      current: 0
+      current: 0,
+      loading: {}
     }
+    this.subId = parseInt(this.$router.params.subId)
     this.categoryId = parseInt(this.$router.params.categoryId)
   }
 
   componentDidMount() {
     const payload = { categoryId: this.categoryId }
     this.props.dispatchSubMenu(payload).then((res) => {
-      Taro.setNavigationBarTitle({ title: res.category.name })
+      const { category: { name, subCategoryList } } = res
+      Taro.setNavigationBarTitle({ title: name })
       setTimeout(() => {
-        this.handleMenu(0)
+        const index = subCategoryList.findIndex(item => item.id === this.subId)
+        this.handleMenu(index)
       }, 0)
     })
   }
@@ -49,6 +53,12 @@ class CateSub extends Component {
   }
 
   loadList = (id) => {
+    const { loading } = this.state
+    if (loading[id]) {
+      return
+    }
+
+    this.setState({ loading: { ...loading, [id]: true } })
     this.props.dispatchSubList({
       categoryL1Id: this.categoryId,
       categoryL2Id: id
@@ -58,8 +68,6 @@ class CateSub extends Component {
   render () {
     const { subMenu, subCategory } = this.props
     const { current } = this.state
-    const menu = subMenu[current] || {}
-    const list = subCategory[menu.id] || []
     const height = getWindowHeight(false)
 
     return (
@@ -78,28 +86,31 @@ class CateSub extends Component {
           onChange={this.handleChange}
           style={{ height }}
         >
-          {subMenu.map(item => (
-            <SwiperItem key={item.id} className='cate-sub__swiper-item'>
-              <ScrollView
-                scrollY
-                className='cate-sub__list'
-                style={{ height }}
-              >
-                <ItemList list={list}>
-                  <View className='cate-sub__list-title'>
-                    <Text className='cate-sub__list-title-txt'>
-                      {item.frontName}
-                    </Text>
-                  </View>
-                </ItemList>
+          {subMenu.map(item => {
+            const list = subCategory[item.id] || []
+            return (
+              <SwiperItem key={item.id} className='cate-sub__swiper-item'>
                 {!!list.length &&
-                  <View className='cate-sub__list-tip'>
-                    <Text className='cate-sub__list-tip-txt'>横向滑动切换其他分类</Text>
-                  </View>
+                  <ScrollView
+                    scrollY
+                    className='cate-sub__list'
+                    style={{ height }}
+                  >
+                    <ItemList list={list}>
+                      <View className='cate-sub__list-title'>
+                        <Text className='cate-sub__list-title-txt'>
+                          {item.frontName}
+                        </Text>
+                      </View>
+                    </ItemList>
+                    <View className='cate-sub__list-tip'>
+                      <Text className='cate-sub__list-tip-txt'>横向滑动切换其他分类</Text>
+                    </View>
+                  </ScrollView>
                 }
-              </ScrollView>
-            </SwiperItem>
-          ))}
+              </SwiperItem>
+            )
+          })}
         </Swiper>
       </View>
     )

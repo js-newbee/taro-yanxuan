@@ -24,7 +24,7 @@ export default class Tip extends Component {
             <Image
               key={index}
               className='home-operation__list-item'
-              src={item.picUrls}
+              src={item.picUrls[0]}
             />
           ))}
         </View>

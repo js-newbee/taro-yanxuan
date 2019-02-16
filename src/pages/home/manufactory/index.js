@@ -42,7 +42,7 @@ export default class Manufactory extends Component {
             <View key={index} className='home-manufactory__boss-item'>
               <Image
                 className='home-manufactory__boss-item-img'
-                src={item.picUrls}
+                src={item.picUrls[0]}
               />
             </View>
           ))}

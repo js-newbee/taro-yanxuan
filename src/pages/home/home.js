@@ -25,13 +25,20 @@ class Home extends Component {
 
   state = {
     loaded: false,
+    loading: false,
     lastItemId: 0,
     hasMore: true
   }
 
-  componentDidShow() {
+  componentDidMount() {
     this.props.dispatchHome().then(() => {
       this.setState({ loaded: true })
+      // 时间关系，首页只做了最底下商品详情的页面
+      Taro.showToast({
+        title: '点击最底下推荐商品可进入详情',
+        duration: 4000,
+        icon: 'none'
+      })
     })
     this.props.dispatchSearchCount()
     this.props.dispatchPin({ orderType: 4, size: 12 })
@@ -39,7 +46,7 @@ class Home extends Component {
   }
 
   loadRecommend = () => {
-    if (!this.state.hasMore) {
+    if (!this.state.hasMore || this.state.loading) {
       return
     }
 
@@ -47,12 +54,16 @@ class Home extends Component {
       lastItemId: this.state.lastItemId,
       size: RECOMMEND_SIZE
     }
+    this.setState({ loading: true })
     this.props.dispatchRecommend(payload).then((res) => {
       const lastItem = res.itemList[res.itemList.length - 1]
       this.setState({
+        loading: false,
         hasMore: res.hasMore,
         lastItemId: lastItem && lastItem.id
       })
+    }).catch(() => {
+      this.setState({ loading: false })
     })
   }
 
@@ -86,6 +97,7 @@ class Home extends Component {
         <ScrollView
           scrollY
           className='home__wrap'
+          onScrollToLower={this.loadRecommend}
           style={{ height: getWindowHeight() }}
         >
           <Banner list={homeInfo.focus} />
@@ -120,6 +132,17 @@ class Home extends Component {
 
           {/* 为你推荐 */}
           <Recommend list={recommend} />
+
+          {this.state.loading &&
+            <View className='home__loading'>
+              <Text className='home__loading-txt'>正在加载中...</Text>
+            </View>
+          }
+          {!this.state.hasMore &&
+            <View className='home__loading home__loading--not-more'>
+              <Text className='home__loading-txt'>更多内容，敬请期待</Text>
+            </View>
+          }
         </ScrollView>
       </View>
     )

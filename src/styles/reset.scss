@@ -7,11 +7,9 @@ page {
   height: 100%;
 }
 
-view {
-  box-sizing: border-box;
-}
-
-text {
+view,
+text,
+scroll-view {
   box-sizing: border-box;
 }
 

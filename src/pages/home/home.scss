@@ -34,11 +34,23 @@
   &-txt {
     color: $text-color-light;
     font-size: 28px;
-    line-height: 28px;
   }
 }
 
 .home__wrap {
-  padding: 76px 0 50px;
+  padding: 76px 0 0;
   background: #fafafa;
+}
+
+.home__loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+
+  &-txt {
+    color: $text-color-light;
+    font-size: 24px;
+  }
 }

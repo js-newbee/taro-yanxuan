@@ -20,14 +20,24 @@
   }
 }
 
+/**
+ * XXX RN Swiper 的 indicator 位置与 H5、小程序不同
+ * 这边通过 height + 负 margin 实现一致样式
+ *（indicator 大小还是不一致就是了，若有需要就自己实现 indicator 也很容易）
+ */
+
+.home-pin__wrap {
+  margin: -100px 0 -20px;
+  height: 450px;
+  overflow: hidden;
+
+  @include eject(margin, 0);
+  @include eject(height, 340px);
+}
+
 .home-pin__swiper {
-  // TODO RN 中 swiper 的 indicator 位置与小程序、H5 不同，若要完全一致需要自己实现 indicator
-  margin: -60px -10px;
-  height: 460px;
-  /*postcss-pxtransform rn eject enable*/
-  margin: 0 -10px;
+  /* XXX RN 的 Swiper 需要有高度，否则会报错 */
   height: 330px;
-  /*postcss-pxtransform rn eject disable*/
 
   &-item {
     display: flex;
@@ -36,9 +46,11 @@
 }
 
 .home-pin__item {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 10px;
+  overflow: hidden;
 
   &-img {
     width: 216px;
@@ -67,5 +79,26 @@
     line-height: 24px;
     text-decoration: line-through;
     text-decoration-color: $text-color-lighter;
+  }
+
+  &-num {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 132px;
+    height: 48px;
+    background: #ff7d05;
+    border-radius: 8px 0;
+    /* XXX RN 不支持 transform-origin 属性，可通过 translate 纠正 */
+    transform: scale(0.5) translate(-33px, -12px);
+
+    &-txt {
+      color: #ffffff;
+      font-size: 36px;
+    }
   }
 }

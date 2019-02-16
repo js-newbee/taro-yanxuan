@@ -29,32 +29,37 @@ export default class Pin extends Component {
           title='免邮拼团'
           link='#'
         />
-        <Swiper
-          className='home-pin__swiper'
-          autoplay
-          indicatorDots
-          indicatorActiveColor='rgb(178, 42, 49)'
-        >
-          {list.map((group, index) => (
-            <SwiperItem
-              key={index}
-              className='home-pin__swiper-item'
-            >
-              {group.map(item => (
-                <View key={item.id} className='home-pin__item'>
-                  <Image
-                    className='home-pin__item-img'
-                    src={item.picUrl}
-                  />
-                  <View className='home-pin__item-info'>
-                    <Text className='home-pin__item-price'>{`拼团价¥${item.price}`}</Text>
-                    <Text className='home-pin__item-origin'>¥{item.originPrice}</Text>
+        <View className='home-pin__wrap'>
+          <Swiper
+            className='home-pin__swiper'
+            autoplay
+            indicatorDots
+            indicatorActiveColor='rgb(178, 42, 49)'
+          >
+            {list.map((group, index) => (
+              <SwiperItem
+                key={index}
+                className='home-pin__swiper-item'
+              >
+                {group.map(item => (
+                  <View key={item.id} className='home-pin__item'>
+                    <Image
+                      className='home-pin__item-img'
+                      src={item.picUrl}
+                    />
+                    <View className='home-pin__item-info'>
+                      <Text className='home-pin__item-price'>{`拼团价¥${item.price}`}</Text>
+                      <Text className='home-pin__item-origin'>¥{item.originPrice}</Text>
+                    </View>
+                    <View className='home-pin__item-num'>
+                      <Text className='home-pin__item-num-txt'>{item.userNum}人团</Text>
+                    </View>
                   </View>
-                </View>
-              ))}
-            </SwiperItem>
-          ))}
-        </Swiper>
+                ))}
+              </SwiperItem>
+            ))}
+          </Swiper>
+        </View>
       </View>
     )
   }

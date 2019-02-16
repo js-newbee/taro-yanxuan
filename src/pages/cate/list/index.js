@@ -10,7 +10,7 @@ export default class List extends Component {
 
   handleClick = (item) => {
     Taro.navigateTo({
-      url: `/pages/cate-sub/cate-sub?id=${item.id}&categoryId=${item.superCategoryId}`
+      url: `/pages/cate-sub/cate-sub?subId=${item.id}&categoryId=${item.superCategoryId}`
     })
   }
 

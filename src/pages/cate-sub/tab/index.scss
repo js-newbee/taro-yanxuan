@@ -6,12 +6,16 @@
   /* TODO RN 端对 border 的编译存在问题，暂时用如下写法 */
   border: 0 solid rgba(0, 0, 0, 0.1);
   border-bottom-width: 1px;
+
+  @include eject(display, block);
+  @include eject(white-space, nowrap);
 }
 
 .cate-sub-tab__item {
   padding: 0 32px;
   display: flex;
   flex-direction: row;
+  @include eject(display, inline-block);
 
   &-txt {
     padding: 0 8px;
@@ -20,14 +24,10 @@
     font-size: 28px;
     line-height: 28px;
     line-height: 60px;
-    /*postcss-pxtransform rn eject enable*/
-    white-space: nowrap;
-    /*postcss-pxtransform rn eject disable*/
+    @include eject(display, inline-block);
 
     &--active {
-      /* TODO RN 端对 border 的编译存在问题，暂时用如下写法 */
-      border: 0 solid $primary-color;
-      border-bottom-width: 5px;
+      @include border(bottom, 5px, solid, $primary-color);
     }
   }
 }
