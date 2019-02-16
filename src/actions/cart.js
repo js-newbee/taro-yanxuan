@@ -1,80 +1,72 @@
 import {
   CART_INFO, CART_NUM, CART_RECOMMEND,
-  CART_ADD_ITEM, CART_REMOVE_ITEM, CART_UPDATE_ITEM,
-  CART_TOGGLE_ITEM, CART_TOGGLE_ALL
+  CART_ADD, CART_UPDATE, CART_UPDATE_CHECK
 } from '@constants/cart'
-import { API_CART, API_CART_NUM, API_CART_RECOMMEND } from '@constants/api'
-import fetch from '@utils/request'
+import {
+  API_CART, API_CART_NUM, API_CART_RECOMMEND,
+  API_CART_ADD, API_CART_UPDATE, API_CART_UPDATE_CHECK
+} from '@constants/api'
+import { createAction } from '@utils/redux'
 
 /**
  * 购物车信息
  * @param {*} payload
  */
-export const dispatchCart = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_CART, payload }).then((res) => {
-      dispatch({
-        type: CART_INFO,
-        payload: res
-      })
-      return res
-    })
-  }
-}
+export const dispatchCart = payload => createAction({
+  url: API_CART,
+  type: CART_INFO,
+  payload
+})
 
 /**
  * 购物车物品数量
  * @param {*} payload
  */
-export const dispatchCartNum = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_CART_NUM, payload }).then((res) => {
-      dispatch({
-        type: CART_NUM,
-        payload: res
-      })
-      return res
-    })
-  }
-}
+export const dispatchCartNum = payload => createAction({
+  url: API_CART_NUM,
+  type: CART_NUM,
+  payload
+})
 
 /**
  * 购物车推荐
  * @param {*} payload
  */
-export const dispatchRecommend = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_CART_RECOMMEND, payload }).then((res) => {
-      dispatch({
-        type: CART_RECOMMEND,
-        payload: res
-      })
-      return res
-    })
-  }
-}
-
-export const dispatchAddItem = (payload) => ({
-  type: CART_ADD_ITEM,
+export const dispatchRecommend = payload => createAction({
+  url: API_CART_RECOMMEND,
+  type: CART_RECOMMEND,
   payload
 })
 
-export const dispatchRemoveItem = (payload) => ({
-  type: CART_REMOVE_ITEM,
+/**
+ * 添加商品到购物车
+ * @param {*} payload
+ */
+export const dispatchAdd = payload => createAction({
+  url: API_CART_ADD,
+  type: CART_ADD,
+  method: 'POST',
   payload
 })
 
-export const dispatchUpdateItem = (payload) => ({
-  type: CART_UPDATE_ITEM,
+/**
+ * 更新商品信息
+ * @param {*} payload
+ */
+export const dispatchUpdate = payload => createAction({
+  url: API_CART_UPDATE,
+  type: CART_UPDATE,
+  method: 'POST',
   payload
 })
 
-export const dispatchToggleItem = (payload) => ({
-  type: CART_TOGGLE_ITEM,
-  payload
-})
-
-export const dispatchToggleAll = (payload) => ({
-  type: CART_TOGGLE_ALL,
+/**
+ * 更新商品选中状态
+ * @param {*} payload
+ */
+export const dispatchUpdateCheck = payload => createAction({
+  url: API_CART_UPDATE_CHECK,
+  type: CART_UPDATE_CHECK,
+  method: 'POST',
   payload
 })

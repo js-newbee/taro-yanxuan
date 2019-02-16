@@ -1,13 +1,13 @@
 @import "@styles/theme.scss";
 
 .cart-list {
+  margin-top: 20px;
 }
 
 .cart-list__item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 20px;
   padding: 24px 30px 46px;
   background: #ffffff;
 
@@ -52,10 +52,10 @@
     margin-bottom: 16px;
 
     &-txt {
-      padding: 6px 12px;
+      padding: 6px 12px 4px;
       color: $text-color-light;
       font-size: 24px;
-      line-height: 24px;
+      line-height: 30px;
       background: #f4f3f4;
       border-radius: 4px;
     }

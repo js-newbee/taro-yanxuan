@@ -4,64 +4,40 @@ import {
 import {
   API_HOME, API_HOME_SEARCH_COUNT, API_HOME_RECOMMEND, API_HOME_PIN
 } from '@constants/api'
-import fetch from '@utils/request'
+import { createAction } from '@utils/redux'
 
 /**
  * 首页数据
  * @param {*} payload
  */
-export const dispatchHome = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_HOME, payload }).then((res) => {
-      dispatch({
-        type: HOME_INFO,
-        payload: res
-      })
-      return res
-    })
-  }
-}
+export const dispatchHome = payload => createAction({
+  url: API_HOME,
+  type: HOME_INFO,
+  payload
+})
 
 /**
  * 商品总数
  * @param {*} payload
  */
-export const dispatchSearchCount = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_HOME_SEARCH_COUNT, payload }).then((res) => {
-      dispatch({
-        type: HOME_SEARCH_COUNT,
-        payload: res
-      })
-      return res
-    })
-  }
-}
+export const dispatchSearchCount = payload => createAction({
+  url: API_HOME_SEARCH_COUNT,
+  type: HOME_SEARCH_COUNT,
+  payload
+})
 
 /**
  * 拼团
  * @param {*} payload
  */
-export const dispatchPin = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_HOME_PIN, payload }).then((res) => {
-      dispatch({
-        type: HOME_PIN,
-        payload: res
-      })
-      return res
-    })
-  }
-}
+export const dispatchPin = payload => createAction({
+  url: API_HOME_PIN,
+  type: HOME_PIN,
+  payload
+})
 
-export const dispatchRecommend = (payload) => {
-  return (dispatch) => {
-    return fetch({ url: API_HOME_RECOMMEND, payload }).then((res) => {
-      dispatch({
-        type: HOME_RECOMMEND,
-        payload: res
-      })
-      return res
-    })
-  }
-}
+export const dispatchRecommend = payload => createAction({
+  url: API_HOME_RECOMMEND,
+  type: HOME_RECOMMEND,
+  payload
+})

@@ -45,7 +45,7 @@ class Index extends Component {
   render () {
     const { cartInfo, recommend } = this.props
     const { cartGroupList = [] } = cartInfo
-    const cartList = (cartGroupList[1] && cartGroupList[1].cartItemList) || []
+    const cartList = cartGroupList.slice(1)
     const extList = recommend.extList || []
     const isEmpty = !cartList.length
     const isShowFooter = !isEmpty
@@ -77,16 +77,20 @@ class Index extends Component {
           style={{ height: getWindowHeight() }}
         >
           <Tip list={cartInfo.policyDescList} />
+          {isEmpty && <Empty />}
+
           {!isEmpty && <Gift data={cartGroupList[0]} />}
-          {!isEmpty ?
+
+          {!isEmpty && cartList.map(group => (
             <List
-              list={cartList}
-              onToggle={this.props.dispatchToggleItem}
-              onUpdate={this.props.dispatchUpdateItem}
-              onRemove={this.props.dispatchRemoveItem}
-            /> :
-            <Empty />
-          }
+              key={group.promId}
+              promId={group.promId}
+              promType={group.promType}
+              list={group.cartItemList}
+              onUpdate={this.props.dispatchUpdate}
+              onUpdateCheck={this.props.dispatchUpdateCheck}
+            />
+          ))}
 
           {/* 相关推荐 */}
           {extList.map((ext, index) => (
@@ -109,11 +113,12 @@ class Index extends Component {
             <View className='cart__footer--placeholder' />
           }
         </ScrollView>
+
         {isShowFooter &&
           <View className='cart__footer'>
             <Footer
               cartInfo={cartInfo}
-              onToggle={this.props.dispatchToggleAll}
+              onUpdateCheck={this.props.dispatchUpdateCheck}
             />
           </View>
         }

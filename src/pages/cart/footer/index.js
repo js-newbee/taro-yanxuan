@@ -9,6 +9,30 @@ export default class Footer extends Component {
     onToggle: () => {}
   }
 
+  handleUpdateCheck = () => {
+    const { cartInfo } = this.props
+    const { cartGroupList = [], countCornerMark, selectedCount } = cartInfo
+    const cartList = cartGroupList.slice(1)
+    const payload = { skuList: [] }
+    const isAllChecked = !!selectedCount && parseInt(countCornerMark) === selectedCount
+    const nextChecked = !isAllChecked
+    cartList.forEach((group) => {
+      group.cartItemList.forEach((item) => {
+        payload.skuList.push({
+          skuId: item.skuId,
+          type: item.type,
+          extId: item.extId,
+          cnt: item.cnt,
+          checked: nextChecked,
+          canCheck: true,
+          promId: group.promId,
+          promType: group.promType
+        })
+      })
+    })
+    this.props.onUpdateCheck(payload)
+  }
+
   handleOrder = () => {
     Taro.showToast({
       title: '敬请期待',
@@ -17,16 +41,16 @@ export default class Footer extends Component {
   }
 
   render () {
-    const { cartInfo, onToggle } = this.props
+    const { cartInfo } = this.props
     return (
       <View className='cart-footer'>
         <View className='cart-footer__select'>
           <CheckboxItem
             checked={!!cartInfo.selectedCount}
-            onClick={onToggle}
+            onClick={this.handleUpdateCheck}
           >
             <Text className='cart-footer__select-txt'>
-              {cartInfo.canAllChecked ? '全选' : `已选(${cartInfo.selectedCount})`}
+              {!cartInfo.selectedCount ? '全选' : `已选(${cartInfo.selectedCount})`}
             </Text>
           </CheckboxItem>
         </View>

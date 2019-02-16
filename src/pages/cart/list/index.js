@@ -7,23 +7,37 @@ export default class List extends Component {
   static defaultProps = {
     list: [],
     onUpdate: () => {},
-    onToggle: () => {},
-    onRemove: () => {}
+    onUpdateCheck: () => {}
   }
 
-  handleUpdate = (item, num) => {
-    this.props.onUpdate({ id: item.id, num })
+  getBaseItem = (item) => ({
+    skuId: item.skuId,
+    type: item.type,
+    extId: item.extId,
+    cnt: item.cnt,
+    checked: item.checked,
+    canCheck: true,
+    promId: this.props.promId,
+    promType: this.props.promType
+  })
+
+  handleUpdate = (item, cnt) => {
+    const payload = {
+      skuList: [{ ...this.getBaseItem(item), cnt }]
+    }
+    this.props.onUpdate(payload)
   }
 
-  handleToggle = (item) => {
-    this.props.onToggle({ id: item.id })
+  handleUpdateCheck = (item) => {
+    const payload = {
+      skuList: [{ ...this.getBaseItem(item), checked: !item.checked }]
+    }
+    this.props.onUpdateCheck(payload)
   }
 
   handleRemove = () => {
     // TODO 左滑删除
   }
-
-  isSelected = id => this.props.list.some(item => item.selected && item.id === id)
 
   render () {
     const { list } = this.props
@@ -36,7 +50,7 @@ export default class List extends Component {
           >
             <CheckboxItem
               checked={item.checked}
-              onClick={this.handleToggle.bind(this, item)}
+              onClick={this.handleUpdateCheck.bind(this, item)}
             />
             <Image
               className='cart-list__item-img'
@@ -44,8 +58,8 @@ export default class List extends Component {
             />
             <View className='cart-list__item-info'>
               <View className='cart-list__item-title'>
-                {!!item.tag &&
-                  <Text className='cart-list__item-title-tag'>{item.tag}</Text>
+                {!!item.prefix &&
+                  <Text className='cart-list__item-title-tag'>{item.prefix}</Text>
                 }
                 <Text className='cart-list__item-title-name' numberOfLines={1}>
                   {item.itemName}
