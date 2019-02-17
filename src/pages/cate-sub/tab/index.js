@@ -27,13 +27,10 @@ export default class Banner extends Component {
             className='cate-sub-tab__item'
             onClick={this.handleClick.bind(this, index)}
           >
-            <Text
-              className={classNames('cate-sub-tab__item-txt',
-                index === current && 'cate-sub-tab__item-txt--active'
-              )}
-            >
-              {item.name}
-            </Text>
+            <Text className='cate-sub-tab__item-txt'>{item.name}</Text>
+            {index === current &&
+              <View className='cate-sub-tab__item-line' />
+            }
           </View>
         ))}
       </ScrollView>

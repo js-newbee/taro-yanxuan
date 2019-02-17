@@ -28,18 +28,12 @@ class UserLoginEmail extends Component {
   handleInput = (key, value) => {
     this.setState({ [key]: value })
     if (key === 'username') {
-      const isFinish = /\.com$/.test(value)
+      const isFinish = /\.(com|net)$/.test(value)
       if (!this.state.isShowSuggest && value && !isFinish) {
         this.setState({ isShowSuggest: true })
       } else if (this.state.isShowSuggest && (!value || isFinish)) {
         this.setState({ isShowSuggest: false })
       }
-    }
-  }
-
-  handleBlur = () => {
-    if (this.state.isShowSuggest) {
-      this.setState({ isShowSuggest: false })
     }
   }
 
@@ -80,7 +74,6 @@ class UserLoginEmail extends Component {
             value={username}
             placeholder='邮箱账号'
             onInput={this.handleInput.bind(this, 'username')}
-            onBlur={this.handleBlur}
           />
           <InputItem
             password
@@ -91,7 +84,8 @@ class UserLoginEmail extends Component {
           {isShowSuggest &&
             <View className='user-login-email__suggest'>
               {EMAIL_SUFFIX.map((suffix, index) => {
-                const value = `${username}@${suffix}`
+                const name = username.split('@')[0]
+                const value = `${name}@${suffix}`
                 return (
                   <View
                     key={index}

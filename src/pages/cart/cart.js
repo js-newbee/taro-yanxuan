@@ -24,7 +24,7 @@ class Index extends Component {
     login: false
   }
 
-  componentDidMount() {
+  componentDidShow() {
     fetch({ url: API_CHECK_LOGIN, showToast: false, autoLogin: false }).then((res) => {
       if (res) {
         this.setState({ loaded: true, login: true })
@@ -46,7 +46,7 @@ class Index extends Component {
   render () {
     const { cartInfo, recommend } = this.props
     const { cartGroupList = [] } = cartInfo
-    const cartList = cartGroupList.slice(1)
+    const cartList = cartGroupList.filter(i => !i.promType)
     const extList = recommend.extList || []
     const isEmpty = !cartList.length
     const isShowFooter = !isEmpty

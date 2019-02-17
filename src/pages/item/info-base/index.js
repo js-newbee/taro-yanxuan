@@ -21,7 +21,7 @@ export default class InfoBase extends Component {
           </View>
           <View className='item-info-base__header-star'>
             <Text className='item-info-base__header-star-txt'>
-              {`${parseFloat(itemStar.goodCmtRate)}%`}
+              {`${parseFloat(itemStar.goodCmtRate) || 0}%`}
             </Text>
             <Text className='item-info-base__header-star-link'>{'好评率>'}</Text>
           </View>

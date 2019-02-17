@@ -16,7 +16,7 @@ export default class Gift extends Component {
 
   render () {
     const { data } = this.props
-    if (!data.promId) {
+    if (!data.promType) {
       return null
     }
 
