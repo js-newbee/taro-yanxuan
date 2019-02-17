@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
-import { ButtonItem, ItemList } from '@components'
+import { ButtonItem, ItemList, Loading } from '@components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/cart'
 import { API_CHECK_LOGIN } from '@constants/api'
@@ -20,18 +20,19 @@ class Index extends Component {
   }
 
   state = {
+    loaded: false,
     login: false
   }
 
   componentDidMount() {
     fetch({ url: API_CHECK_LOGIN, showToast: false, autoLogin: false }).then((res) => {
       if (res) {
-        this.setState({ login: true })
+        this.setState({ loaded: true, login: true })
         this.props.dispatchCart()
         this.props.dispatchCartNum()
         this.props.dispatchRecommend()
       } else {
-        this.setState({ login: false })
+        this.setState({ loaded: true, login: false })
       }
     })
   }
@@ -49,6 +50,10 @@ class Index extends Component {
     const extList = recommend.extList || []
     const isEmpty = !cartList.length
     const isShowFooter = !isEmpty
+
+    if (!this.state.loaded) {
+      return <Loading />
+    }
 
     if (!this.state.login) {
       return (

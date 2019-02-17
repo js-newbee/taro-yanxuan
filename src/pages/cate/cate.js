@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
+import { Loading } from '@components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/cate'
 import { getWindowHeight } from '@utils/style'
@@ -16,14 +17,16 @@ class Cate extends Component {
 
   state = {
     current: -1,
+    loaded: false,
     loading: false
   }
 
   componentDidMount() {
     this.props.dispatchMenu().then((res) => {
-      if (this.state.current === -1) {
-        this.setState({ current: res.categoryList[0].id })
-      }
+      this.setState({
+        loaded: true,
+        current: res.categoryList[0].id
+      })
     })
   }
 
@@ -40,6 +43,10 @@ class Cate extends Component {
     const banner = currentCategory.focusBannerList || []
     const list = currentCategory.categoryGroupList || []
     const height = getWindowHeight()
+
+    if (!this.state.loaded) {
+      return <Loading />
+    }
 
     return (
       <View className='cate'>

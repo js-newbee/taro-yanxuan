@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
+import { Loading } from '@components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/home'
 import { dispatchCartNum } from '@actions/cart'
@@ -73,7 +74,7 @@ class Home extends Component {
 
   render () {
     if (!this.state.loaded) {
-      return null
+      return <Loading />
     }
 
     const { homeInfo, searchCount, recommend, pin } = this.props

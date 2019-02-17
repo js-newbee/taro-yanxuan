@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
-import { Popup } from '@components'
+import { Popup, Loading } from '@components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/item'
 import { dispatchAdd } from '@actions/cart'
@@ -86,10 +86,6 @@ class Item extends Component {
   }
 
   render () {
-    if (!this.state.loaded) {
-      return null
-    }
-
     const { itemInfo } = this.props
     const { itemDetail = {} } = itemInfo
     const gallery = [
@@ -101,6 +97,10 @@ class Item extends Component {
     const popupStyle = process.env.TARO_ENV === 'rn' ?
       { transform: [{ translateY: Taro.pxTransform(-100) }] } :
       { transform: `translateY(${Taro.pxTransform(-100)})` }
+
+    if (!this.state.loaded) {
+      return <Loading />
+    }
 
     return (
       <View className='item'>

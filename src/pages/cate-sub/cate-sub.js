@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, ScrollView, Swiper, SwiperItem } from '@tarojs/components'
-import { ItemList } from '@components'
+import { ItemList, Loading } from '@components'
 import { connect } from '@tarojs/redux'
 import * as actions from '@actions/cate'
 import { getWindowHeight } from '@utils/style'
@@ -17,6 +17,7 @@ class CateSub extends Component {
     super(props)
     this.state = {
       current: 0,
+      loaded: false,
       loading: {}
     }
     this.subId = parseInt(this.$router.params.subId)
@@ -26,6 +27,8 @@ class CateSub extends Component {
   componentDidMount() {
     const payload = { categoryId: this.categoryId }
     this.props.dispatchSubMenu(payload).then((res) => {
+      this.setState({ loaded: true })
+
       const { category: { name, subCategoryList } } = res
       Taro.setNavigationBarTitle({ title: name })
       setTimeout(() => {
@@ -69,6 +72,10 @@ class CateSub extends Component {
     const { subMenu, subCategory } = this.props
     const { current } = this.state
     const height = getWindowHeight(false)
+
+    if (!this.state.loaded) {
+      return <Loading />
+    }
 
     return (
       <View className='cate-sub'>
