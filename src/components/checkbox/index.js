@@ -6,7 +6,7 @@ import './index.scss'
 
 export default class CheckBoxItem extends Component {
   static defaultProps = {
-    compStyle: {},
+    compStyle: '',
     checked: false,
     onClick: () => {}
   }

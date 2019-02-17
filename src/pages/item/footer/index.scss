@@ -1,0 +1,38 @@
+@import "@styles/theme.scss";
+
+.item-footer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background: #faf9fa;
+  @include border(top, 1px, solid, $border-color);
+}
+
+.item-footer__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 96px;
+  @include border(right, 1px, solid, $border-color);
+
+  &-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.item-footer__buy {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @include border(right, 1px, solid, $border-color);
+
+  &-txt {
+    color: $text-color;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}

@@ -1,0 +1,19 @@
+@import "@styles/theme.scss";
+
+.item {
+  position: relative;
+  overflow: hidden;
+}
+
+.item__wrap {
+  padding-bottom: 100px;
+  background: #fafafa;
+}
+
+.item__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}

@@ -1,0 +1,11 @@
+@import "@styles/theme.scss";
+
+.item-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-detail__img {
+  width: 750px;
+  height: 200px;
+}

@@ -1,0 +1,91 @@
+@import "@styles/theme.scss";
+
+.item-spec {
+  padding: 30px 30px 90px;
+}
+
+.item-spec__info {
+  display: flex;
+  flex-direction: row;
+
+  &-img {
+    margin-right: 21px;
+    width: 180px;
+    height: 180px;
+    background: #fafafa;
+    border-radius: $border-radius;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    padding-top: 92px;
+  }
+
+  &-price {
+    display: flex;
+    flex-direction: row;
+
+    &-txt {
+      margin-right: 20px;
+      color: $primary-color;
+      font-size: 28px;
+      line-height: 28px;
+    }
+
+    &-origin {
+      color: $text-color-lighter;
+      font-size: 28px;
+      line-height: 28px;
+      text-decoration: line-through;
+      text-decoration-color: $text-color-lighter;
+    }
+  }
+
+  &-tip {
+    margin-top: 20px;
+    color: $text-color;
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+.item-spec__group {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+
+  &-title {
+    color: $text-color;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &-item {
+      margin: 20px 30px 0 0;
+      padding: 0 26px;
+      height: 70px;
+      color: $text-color;
+      font-size: 24px;
+      line-height: 68px;
+      border: 1px solid $text-color-light;
+      border-radius: $border-radius;
+      @include eject(border-width, 1PX);
+
+      &--active {
+        color: $primary-color;
+        border-color: $primary-color;
+      }
+
+      &--disabled {
+        color: $text-color-lighter;
+        border-color: $text-color-lighter;
+      }
+    }
+  }
+}

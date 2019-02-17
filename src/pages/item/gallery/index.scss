@@ -1,0 +1,42 @@
+@import "@styles/theme.scss";
+
+.item-gallery {
+  position: relative;
+  background: $white;
+}
+
+.item-gallery__swiper {
+  /* XXX RN 的 Swiper 需要有高度，否则会报错 */
+  height: 750px;
+
+  &-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &-img {
+      width: 750px;
+      height: 750px;
+    }
+  }
+}
+
+.item-gallery__indicator {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 30px;
+  background: $white;
+  border-radius: $border-radius;
+
+  &-txt {
+    color: $text-color;
+    font-size: 24px;
+  }
+}

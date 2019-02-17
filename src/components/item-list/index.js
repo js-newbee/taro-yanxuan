@@ -8,10 +8,9 @@ export default class ItemList extends Component {
     list: []
   }
 
-  handleClick = () => {
-    Taro.showToast({
-      title: '敬请期待',
-      icon: 'none'
+  handleClick = (item) => {
+    Taro.navigateTo({
+      url: `/pages/item/item?itemId=${item.id}`
     })
   }
 

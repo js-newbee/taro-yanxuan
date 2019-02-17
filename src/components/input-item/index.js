@@ -10,8 +10,8 @@ export default class InputItem extends Component {
     placeholder: '',
     focus: false,
     password: false,
-    compStyle: {},
-    inputStyle: {},
+    compStyle: '',
+    inputStyle: '',
     onInput: () => {},
     onFocus: () => {},
     onBlur: () => {}

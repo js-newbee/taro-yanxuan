@@ -9,6 +9,9 @@ import './index.scss'
 export default class InputNumber extends Component {
   static defaultProps = {
     num: 0,
+    compStyle: '',
+    optStyle: '',
+    numStyle: '',
     onChange: () => {}
   }
 
@@ -23,29 +26,34 @@ export default class InputNumber extends Component {
   }
 
   render () {
-    const { num } = this.props
+    const { num, compStyle, numStyle } = this.props
     const isMinusDisabled = num <= 1
     return (
-      <View className='comp-input-number'>
+      <View className='comp-input-number' style={compStyle}>
         <View
           className={classNames('comp-input-number__minus',
             isMinusDisabled && 'comp-input-number__minus--disabled'
           )}
+          onClick={this.handleMinus}
         >
           <Image
             className='comp-input-number__minus-img'
             src={isMinusDisabled ? minusDisabledIcon : minusIcon}
-            onClick={this.handleMinus}
           />
         </View>
-        <View className='comp-input-number__num'>
+        <View
+          className='comp-input-number__num'
+          style={numStyle}
+        >
           <Text className='comp-input-number__num-txt'>{num}</Text>
         </View>
-        <View className='comp-input-number__plus'>
+        <View
+          className='comp-input-number__plus'
+          onClick={this.handlePlus}
+        >
           <Image
             className='comp-input-number__plus-img'
             src={plusIcon}
-            onClick={this.handlePlus}
           />
         </View>
       </View>

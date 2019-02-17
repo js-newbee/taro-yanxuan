@@ -6,8 +6,8 @@ import './index.scss'
 
 export default class ButtonItem extends Component {
   static defaultProps = {
-    compStyle: {},
-    textStyle: {},
+    compStyle: '',
+    textStyle: '',
     plain: false,
     loading: false,
     disabled: false,

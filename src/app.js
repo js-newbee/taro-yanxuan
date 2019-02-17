@@ -26,6 +26,7 @@ class App extends Component {
       'pages/user/user',
       'pages/user-login/user-login',
       'pages/user-login-email/user-login-email',
+      'pages/item/item',
       'pages/webview/webview'
     ],
     window: {

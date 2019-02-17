@@ -1,10 +1,9 @@
 @import '@styles/theme.scss';
 
-$height: 52px;
-
 .comp-input-number {
   display: flex;
   flex-direction: row;
+  height: 52px;
 }
 
 .comp-input-number__minus,
@@ -14,9 +13,11 @@ $height: 52px;
   justify-content: center;
   align-items: center;
   width: 84px;
-  height: $height;
+  height: 100%;
   border: 1px solid #7f7f7f;
+  @include hairline(border-width);
   border-left-width: 0;
+  border-radius: 0 $border-radius $border-radius 0;
 
   &-img {
     width: 30px;
@@ -25,8 +26,9 @@ $height: 52px;
 }
 
 .comp-input-number__minus {
-  border-left-width: 1px;
+  @include hairline(border-left-width);
   border-right-width: 0;
+  border-radius: $border-radius 0 0 $border-radius;
 
   &--disabled {
     border-color: #cccccc;
@@ -39,7 +41,7 @@ $height: 52px;
   justify-content: center;
   align-items: center;
   width: 76px;
-  height: $height;
+  height: 100%;
   border: 1px solid #7f7f7f;
 
   &-txt {

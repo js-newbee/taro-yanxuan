@@ -4,7 +4,7 @@ const NAVIGATOR_HEIGHT = 44
 const TAB_BAR_HEIGHT = 50
 
 /**
- * TODO Taro 可用高度的计算有问题
+ * TODO Taro 可用高度的计算有问题，H5、RN 上返回的是窗口高度，暂且简单兼容下
  * @param {*} showTabBar
  */
 export function getWindowHeight(showTabBar = true) {
@@ -14,7 +14,9 @@ export function getWindowHeight(showTabBar = true) {
 
   if (process.env.TARO_ENV === 'rn') {
     return windowHeight - statusBarHeight - NAVIGATOR_HEIGHT - tabBarHeight
-  } else if (process.env.TARO_ENV === 'h5') {
+  }
+
+  if (process.env.TARO_ENV === 'h5') {
     return `${windowHeight - tabBarHeight}px`
   }
 
@@ -33,7 +35,7 @@ export function postcss(style) {
   const { background, ...restStyle } = style
   const newStyle = {}
   if (background) {
-    // RN 不支持 background
+    // RN 不支持 background，只支持 backgroundColor
     newStyle.backgroundColor = background
   }
   return { ...restStyle, ...newStyle }

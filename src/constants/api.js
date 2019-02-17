@@ -29,3 +29,7 @@ export const API_CART_UPDATE_CHECK = `${host}/xhr/promotionCart/updateCheck.json
 export const API_USER = `${host}/xhr/user/getDetail.json`
 export const API_USER_LOGIN = `${host}/xhr/u/mailLogin.json`
 export const API_CHECK_LOGIN = `${host}/xhr/u/checkLogin.json`
+
+// item
+export const API_ITEM = `${host}/xhr/item/detail.json`
+export const API_ITEM_RECOMMEND = `${host}/xhr/rcmd/itemDetail.json`

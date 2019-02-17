@@ -5,8 +5,8 @@ import './index.scss'
 
 export default class Tag extends Component {
   static defaultProps = {
-    compStyle: {},
-    textStyle: {}
+    compStyle: '',
+    textStyle: ''
   }
 
   getCls = (base) => {

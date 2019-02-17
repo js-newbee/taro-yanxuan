@@ -81,9 +81,9 @@ class Index extends Component {
 
           {!isEmpty && <Gift data={cartGroupList[0]} />}
 
-          {!isEmpty && cartList.map(group => (
+          {!isEmpty && cartList.map((group, index) => (
             <List
-              key={group.promId}
+              key={index}
               promId={group.promId}
               promType={group.promType}
               list={group.cartItemList}

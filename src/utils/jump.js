@@ -15,6 +15,13 @@ export default function jump(options) {
       url: `${PAGE_WEBVIEW}?${urlStringify({ url, title })}`
     })
   } else if (/^\/pages\//.test(url)) {
+    /* TODO H5 不支持 switchTab，暂时 hack 下 */
+    if (process.env.TARO_ENV === 'h5' && method === 'switchTab') {
+      Taro.navigateBack({ delta: Taro.getCurrentPages().length })
+      Taro.navigateTo({ url })
+      return
+    }
+
     Taro[method]({
       url: `${url}?${urlStringify(payload)}`
     })
