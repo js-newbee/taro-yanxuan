@@ -39,7 +39,7 @@ class Item extends Component {
   }
 
   handleAdd = () => {
-    /* 添加购物车是先从 skuSpecValueList 中选择规格，再去 skuMap 中找 skuId，多个规格时用 ; 组合 */
+    // 添加购物车是先从 skuSpecValueList 中选择规格，再去 skuMap 中找 skuId，多个规格时用 ; 组合
     const { itemInfo } = this.props
     const { skuSpecList = [] } = itemInfo
     const { visible, selected } = this.state
@@ -97,7 +97,7 @@ class Item extends Component {
       itemDetail.picUrl1, itemDetail.picUrl2, itemDetail.picUrl3, itemDetail.picUrl4
     ].filter(i => i)
     const height = getWindowHeight(false)
-    // TODO RN 的 transform 写法不同，这块可以统一放到 @utils/style 的 postcss() 中处理
+    // XXX RN 的 transform 写法不同，这块可以统一放到 @utils/style 的 postcss() 中处理
     const popupStyle = process.env.TARO_ENV === 'rn' ?
       { transform: [{ translateY: Taro.pxTransform(-100) }] } :
       { transform: `translateY(${Taro.pxTransform(-100)})` }
@@ -115,7 +115,7 @@ class Item extends Component {
           <Detail html={itemDetail.detailHtml} />
         </ScrollView>
 
-        {/* XXX Popup 一般的实现是 fixed 定位，但 RN 不支持，只能用 absolute，要注意引入位置 */}
+        {/* NOTE Popup 一般的实现是 fixed 定位，但 RN 不支持，只能用 absolute，要注意引入位置 */}
         <Popup
           visible={this.state.visible}
           onClose={this.toggleVisible}

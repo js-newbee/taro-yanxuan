@@ -23,7 +23,7 @@ export default class Vip extends Component {
 
   animate = () => {
     /**
-     * XXX 由于 Taro.createAnimation 还不支持 RN，目前只能自己实现
+     * // NOTE 由于 Taro.createAnimation 还不支持 RN，目前只能自己实现
      * 核心要点都是通过 state + style 实现
      * 如下是随手写的很粗糙的动画，见笑了
      */
@@ -39,7 +39,10 @@ export default class Vip extends Component {
   }
 
   getAnimateStyle = () => {
-    // XXX 样式文件中的 transform 属性能正确编译为 RN 支持的格式，但在 js 中目前需要自行处理
+    /**
+     * // NOTE 样式文件中的 transform 属性能正确编译为 RN 支持的格式，但在 js 中目前需要自行处理
+     * 这边主要注意 RN 的 transform 写法与一般 css 是不同的
+     **/
     if (process.env.TARO_ENV === 'rn') {
       return { transform: [{ translateX: this.state.x }] }
     }

@@ -9,16 +9,6 @@ export default class HomeTitle extends Component {
     link: ''
   }
 
-  handleClick = (link) => {
-    // TODO
-    if (link === '#') {
-      Taro.showToast({
-        title: '敬请期待',
-        icon: 'none'
-      })
-    }
-  }
-
   render () {
     const { title, link } = this.props
     return (
@@ -28,10 +18,7 @@ export default class HomeTitle extends Component {
           {this.props.children}
         </View>
         {!!link &&
-          <View
-            className='comp-home-title__link'
-            onClick={this.handleClick.bind(this, link)}
-          >
+          <View className='comp-home-title__link'>
             <Text className='comp-home-title__link-txt'>更多</Text>
             <Image className='comp-home-title__link-img' src={arrowRight} />
           </View>

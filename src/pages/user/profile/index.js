@@ -35,7 +35,7 @@ export default class Profile extends Component {
 
     return (
       <View className='user-profile'>
-        {/* 背景图片：Image 标签 + position absolute 实现 */}
+        {/* // NOTE 背景图片：Image 标签 + position absolute 实现 */}
         <Image
           className='user-profile__bg'
           src={bg}
@@ -57,7 +57,7 @@ export default class Profile extends Component {
             </Text>
             {userInfo.login ?
               <View className='user-profile__info-wrap'>
-                {/* TODO 没有全部 level 对应的图标，暂时都用 v1 */}
+                {/* XXX 没有全部 level 对应的图标，暂时都用 v1 */}
                 <Image className='user-profile__info-level' src={level01} />
                 <Text className='user-profile__info-uid'>
                   {this.renderUid(userInfo.uid)}

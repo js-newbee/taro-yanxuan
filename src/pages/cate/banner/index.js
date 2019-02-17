@@ -7,8 +7,8 @@ export default class Banner extends Component {
     banner: []
   }
 
-  handleClick = (item) => {
-    // TODO 跳转链接 item.targetUrl
+  handleClick = () => {
+    // XXX banner 的链接跳转暂且先不做了，有需要可以看 “我的” -> “帮助中心”
     Taro.showToast({
       title: '敬请期待',
       icon: 'none'

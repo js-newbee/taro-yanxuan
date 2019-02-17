@@ -11,7 +11,7 @@
   flex-direction: column;
   overflow: hidden;
 
-  // XXX RN 没有 display: none，暂时用 height 实现同等效果
+  // NOTE RN 没有 display: none，暂时用 height 实现同等效果
   &--visible {
     height: 100%;
   }

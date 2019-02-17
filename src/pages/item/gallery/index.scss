@@ -6,7 +6,7 @@
 }
 
 .item-gallery__swiper {
-  /* XXX RN 的 Swiper 需要有高度，否则会报错 */
+  // NOTE RN 的 Swiper 需要有高度，否则会报错
   height: 750px;
 
   &-item {

@@ -43,7 +43,7 @@ $footerHeight: 100px;
   justify-content: center;
 
   &-txt {
-    color: #000000;
+    color: $black;
     font-size: 28px;
     line-height: 28px;
     font-weight: bold;
@@ -51,7 +51,7 @@ $footerHeight: 100px;
 }
 
 .cart__footer {
-  /* XXX RN 中没有 position: fixed，只能用 absolute 了或 flex 布局实现(此处不适用) */
+  // NOTE RN 中没有 position: fixed，只能用 absolute 了或 flex 布局实现(此处不适用)
   position: absolute;
   bottom: 0;
   left: 0;

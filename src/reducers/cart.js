@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   recommend: {}
 }
 
-// TODO H5、RN 还不支持
+// TODO H5、RN 还不支持 setTabBarBadge
 const updateTabBar = (count) => {
   if (count > 0) {
     Taro.setTabBarBadge({

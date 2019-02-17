@@ -13,7 +13,7 @@ export const dispatchItem = payload => createAction({
 })
 
 /**
- * 商品总数
+ * 推荐商品
  * @param {*} payload
  */
 export const dispatchItemRecommend = payload => createAction({

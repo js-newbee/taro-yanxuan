@@ -33,6 +33,10 @@ const MENU_LIST = [{
   text: '红包',
   img: require('./assets/red-packet.png')
 }, {
+  key: 'allowance',
+  text: '津贴',
+  img: require('./assets/allowance.png')
+}, {
   key: 'gif-card',
   text: '礼品卡',
   img: require('./assets/gif-card.png')
@@ -62,7 +66,7 @@ const COUNT_LINE = 3
 
 export default class Menu extends Component {
   handleClick = (menu) => {
-    // TODO 时间关系，此处只实现帮助中心，演示多端 webview
+    // NOTE 时间关系，此处只实现帮助中心，用于演示多端 webview
     if (menu.key === 'help') {
       jump({ url: menu.url, title: menu.text })
     } else {
@@ -77,7 +81,7 @@ export default class Menu extends Component {
     return (
       <View className='user-menu'>
         {MENU_LIST.map((menu, index) => {
-          // XXX 不用伪元素选择器，需自行计算
+          // NOTE 不用伪元素选择器，需自行计算
           const nth = (index + 1) % COUNT_LINE === 0
           const lastLine = parseInt(index / COUNT_LINE) === parseInt(MENU_LIST.length / COUNT_LINE)
           return (

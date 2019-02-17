@@ -42,7 +42,7 @@ $avatarSize: 140px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* TODO 实际上不需要 justify-content 的，但是加了 onClick 之后，Clickable 的处理有问题 */
+  // TODO RN 的 Clickable 处理有问题，此处实际上不需要 justify-content
   justify-content: center;
   margin-left: 30px;
 

@@ -56,7 +56,7 @@ class UserLoginEmail extends Component {
     this.props.dispatchLogin(payload).then(() => {
       this.setState({ loading: false })
       Taro.navigateBack({ delta: 2 })
-      // FIXME RN 的 navigateBack 参数 delta 无效，暂时用如下方式解决
+      // TODO RN 的 navigateBack 参数 delta 无效，暂时用如下方式解决
       if (process.env.TARO_ENV === 'rn') {
         setTimeout(() => Taro.navigateBack(), 1000)
       }
@@ -69,7 +69,7 @@ class UserLoginEmail extends Component {
     const { username, password, isShowSuggest, loading } = this.state
     const isBtnDisabled = !username || !password
 
-    // TODO 这边的 input 有个 autoFocus 的逻辑，暂未实现
+    // XXX 暂未实现 input 的 autoFocus 的逻辑
     return (
       <View className='user-login-email'>
         <View className='user-login-email__logo'>

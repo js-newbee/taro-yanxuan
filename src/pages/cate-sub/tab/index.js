@@ -15,7 +15,7 @@ export default class Banner extends Component {
 
   render () {
     const { list, current } = this.props
-    // TODO tab item 与内容区域的同步滚动
+    // XXX 暂未实现 tab item 与内容区域的同步滚动
     return (
       <ScrollView
         scrollX

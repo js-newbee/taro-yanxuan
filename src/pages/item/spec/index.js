@@ -18,7 +18,7 @@ export default class Spec extends Component {
   }
 
   isValid = item => {
-    // XXX 多规格时这块的判断逻辑不对，暂且先这样吧
+    // XXX 暂未实现多规格时的判断逻辑
     const { data: { skuMap = {}, skuSpecList = [] } } = this.props
     if (skuSpecList.length > 1) {
       return true

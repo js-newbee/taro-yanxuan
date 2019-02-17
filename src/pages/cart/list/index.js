@@ -36,7 +36,7 @@ export default class List extends Component {
   }
 
   handleRemove = () => {
-    // TODO 左滑删除
+    // XXX 暂未实现左滑删除
   }
 
   render () {

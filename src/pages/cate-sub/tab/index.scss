@@ -3,12 +3,16 @@
 .cate-sub-tab {
   display: flex;
   flex-direction: row;
-  /* TODO RN 端对 border 的编译存在问题，暂时用如下写法 */
-  border: 0 solid rgba(0, 0, 0, 0.1);
-  border-bottom-width: 1px;
+  @include border(bottom, 1px, solid, rgba(0, 0, 0, 0.1));
+  @include hairline(border-bottom-width);
 
+  /**
+   * // NOTE H5、微信小程序中，横向滚动的 ScrollView 必须设置 white-space: nowrap
+   * 并且 ScrollView 的子元素必须为 display: inline-block
+   */
   @include eject(display, block);
   @include eject(white-space, nowrap);
+  @include eject(line-height, 0);
 }
 
 .cate-sub-tab__item {

@@ -17,7 +17,7 @@ export default class SwiperBanner extends Component {
           autoplay
           indicatorDots
           indicatorActiveColor='rgb(178, 42, 49)'
-          /* TODO 目前 H5、RN 暂不支持 previousMargin、nextMargin */
+          // TODO 目前 H5、RN 暂不支持 previousMargin、nextMargin
           // previousMargin
           // nextMargin
         >

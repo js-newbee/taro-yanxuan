@@ -1,3 +1,5 @@
+@import "@styles/theme.scss";
+
 .user-menu {
   display: flex;
   flex-direction: row;
@@ -11,18 +13,14 @@
   justify-content: center;
   align-items: center;
   height: 180px;
+  @include border(right bottom, 1px, solid, rgba(0, 0, 0, .15));
 
   /**
-   * TODO RN 中的 View 是没有 onClick 事件的，Taro 做了兼容处理，但对样式处理尚有问题
+   * // TODO RN 中的 View 是没有 onClick 事件的，Taro 做了兼容处理，但对样式处理尚有问题
    * 暂时通过 flex-basis 实现 width 效果
    */
-  // width: 33.3%;
+  @include eject(width, 33.3%);
   flex-basis: 33.3%;
-
-  /* XXX border-right: 1px solid color; 的写法编译成 RN 时有问题，需写成如下形式 */
-  border: 1px solid rgba(0, 0, 0, .15);
-  border-top-width: 0;
-  border-left-width: 0;
 
   &-img {
     width: 52px;

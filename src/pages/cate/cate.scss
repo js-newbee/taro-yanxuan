@@ -9,15 +9,12 @@
 
 .cate__menu {
   width: 162px;
-  /* XXX border-right: 1px solid color; 的写法编译成 RN 时有问题，需写成如下形式 */
-  border: 0 solid rgba(0, 0, 0, .15);
-  border-right-width: 1px;
+  @include border(right, 1px, solid, rgba(0, 0, 0, .15));
 }
 
 .cate__list {
-  /* TODO 此处不能能用 flex: 1 (flex-basis: 0)，RN 上会无法滚动，跟 ScrollView 的处理有关 */
+  // TODO 此处不能能用 flex: 1 (flex-basis: 0)，RN 上会无法滚动，跟 ScrollView 的处理有关
   flex-grow: 1;
-
   @include eject(flex, 1);
 
   &-wrap {

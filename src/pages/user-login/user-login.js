@@ -8,7 +8,7 @@ import './user-login.scss'
 
 const LOGO = `${CDN}/a7ba557fde54270c71656222c7837396.png`
 
-/* TODO 由于 RN 的 app.js 中 initPxTransform 执行顺序关系，不能在这里用到 Taro.pxTransform */
+// TODO 由于 RN 的 app.js 中 initPxTransform 执行顺序关系，不能在 class 外用到 Taro.pxTransform
 // const BUTTON = {
 //   marginTop: Taro.pxTransform(30)
 // }

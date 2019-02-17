@@ -1,9 +1,11 @@
+@import "@styles/theme.scss";
+
 .user {
   position: relative;
 }
 
 .user__wrap {
-  background: #fafafa;
+  background: #f4f4f4;
 }
 
 .user__logout {
@@ -11,22 +13,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
   height: 96px;
-  background: #fff;
+  background: $white;
 
   &-txt {
     color: #333;
     font-size: 28px;
     line-height: 28px;
-    /* TODO RN 的 Clickable 处理有问题，暂时加如下样式解决 */
+    // TODO RN 的 Clickable 处理有问题，暂时加 width 解决 */
     width: 100%;
     text-align: center;
   }
 }
 
 .user__empty {
-  height: 40px;
+  height: 20px;
 }
 
 .user__activity {

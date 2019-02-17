@@ -21,11 +21,9 @@
 }
 
 /**
- * XXX RN Swiper 的 indicator 位置与 H5、小程序不同
- * 这边通过 height + 负 margin 实现一致样式
- *（indicator 大小还是不一致就是了，若有需要就自己实现 indicator 也很容易）
+ * // NOTE RN Swiper 的 indicator 位置与 H5、小程序不同
+ * 这边通过 height + 负 margin 实现一致样式，或者自己实现 indicator 也不难
  */
-
 .home-pin__wrap {
   margin: -100px 0 -20px;
   height: 450px;
@@ -36,7 +34,7 @@
 }
 
 .home-pin__swiper {
-  /* XXX RN 的 Swiper 需要有高度，否则会报错 */
+  // NOTE RN 的 Swiper 需要有高度，否则会报错
   height: 330px;
 
   &-item {
@@ -93,7 +91,7 @@
     height: 48px;
     background: #ff7d05;
     border-radius: 8px 0;
-    /* XXX RN 不支持 transform-origin 属性，可通过 translate 纠正 */
+    // NOTE RN 不支持 transform-origin 属性，可通过 translate 纠正
     transform: scale(0.5) translate(-33px, -12px);
     @include eject(transform, scale(0.5) translate(-66px, -24px));
 

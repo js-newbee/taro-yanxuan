@@ -36,6 +36,10 @@ export const dispatchPin = payload => createAction({
   payload
 })
 
+/**
+ * 推荐商品
+ * @param {*} payload
+ */
 export const dispatchRecommend = payload => createAction({
   url: API_HOME_RECOMMEND,
   type: HOME_RECOMMEND,
