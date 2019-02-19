@@ -1,6 +1,6 @@
 # taro-yanxuan
 
-![overview](./screenshot/overview.png)
+![overview](https://qit-team.github.io/public/images/taro-yanxuan/overview.png)
 
 首个 Taro 多端统一实例 - 网易严选（小程序 + H5 + React Native）。
 
@@ -12,13 +12,13 @@
 
 | 微信小程序 | H5 - [访问链接](http://jsnewbee.com/taro-yanxuan/) | React Native |
 | :--------: | :--------:| :--------: |
-| 请 clone 代码本地运行 | ![H5](./screenshot/h5-qr-code.png) | [Expo Snacks](https://snack.expo.io/@caiminxing/taro-yanxuan) |
+| 请 clone 代码本地运行 | ![H5](https://qit-team.github.io/public/images/taro-yanxuan/h5-qr-code.png) | [Expo Snacks](https://snack.expo.io/@caiminxing/taro-yanxuan) |
 
 如下是 **React Native** 的运行截图：
 
 | 首页、分类 | 二级分类、详情 | 购物车、个人 |
 | :--------: | :--------:| :--------: |
-| ![首页、分类](./screenshot/video-01.gif) | ![二级分类、详情](./screenshot/video-02.gif) | ![购物车、个人](./screenshot/video-03.gif) |
+| ![首页、分类](https://qit-team.github.io/public/images/taro-yanxuan/video-01.gif) | ![二级分类、详情](https://qit-team.github.io/public/images/taro-yanxuan/video-02.gif) | ![购物车、个人](https://qit-team.github.io/public/images/taro-yanxuan/video-03.gif) |
 
 ## 本地运行
 

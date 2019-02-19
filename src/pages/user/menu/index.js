@@ -59,7 +59,7 @@ const MENU_LIST = [{
 }, {
   key: 'help',
   text: '帮助中心',
-  url: 'http://m.you.163.com/help/new',
+  url: 'http://m.you.163.com/help',
   img: require('./assets/help.png')
 }]
 const COUNT_LINE = 3
