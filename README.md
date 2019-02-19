@@ -2,7 +2,7 @@
 
 ![overview](https://qit-team.github.io/public/images/taro-yanxuan/overview.png)
 
-首个 Taro 多端统一实例 - 网易严选（小程序 + H5 + React Native）。
+首个 [Taro](https://github.com/NervJS/taro) 多端统一实例 - 网易严选（小程序 + H5 + React Native）。
 
 本项目基于**趣店 FED** 在 Taro 多端统一开发方面的实践经验，以网易严选小程序为载体，旨在探讨如何以正确的方式使用 Taro 进行多端开发，具体可查看文章 [Taro 多端开发的正确姿势：打造三端统一的网易严选（小程序、H5、React Native）](https://juejin.im/post/5c6a151f518825625e4ac830)。
 
@@ -38,6 +38,7 @@ npm run dev:weapp
 npm run dev:h5
 
 # 运行 React Native
+# RN 端基于 Expo，运行说明：https://nervjs.github.io/taro/docs/react-native.html
 # 注意当前未适配各屏幕大小，需用 375px 屏幕大小运行才能取得最佳效果
 # 若用 iOS 模拟器打开的不是 iPhone 6/7/8，可点击顶部菜单 Hardware -> iOS xx 切换设备
 npm run dev:rn
