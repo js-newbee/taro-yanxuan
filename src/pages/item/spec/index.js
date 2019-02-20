@@ -27,15 +27,15 @@ export default class Spec extends Component {
     return skuMap[item.id] ? skuMap[item.id].sellVolume : false
   }
 
-  isSelected = (item, groupIndex) => this.state.selected[groupIndex] === item.id
+  isSelected = (item, groupId) => this.state.selected[groupId] === item.id
 
-  handleSelect = (item, groupIndex) => {
+  handleSelect = (item, groupId) => {
     if (this.isValid(item)) {
       const selected = {
         ...this.state.selected,
-        [groupIndex]: item.id
+        [groupId]: item.id
       }
-      const id = Object.keys(selected).sort((a, b) => b - a).map(key => selected[key]).join(';')
+      const id = Object.keys(selected).sort((a, b) => a - b).map(key => selected[key]).join(';')
 
       this.setState({ selected })
       if (item.picUrl) {
@@ -73,7 +73,7 @@ export default class Spec extends Component {
           </View>
         </View>
 
-        {skuSpecList.map((group, groupIndex) => (
+        {skuSpecList.map(group => (
           <View key={group.id} className='item-spec__group'>
             <Text className='item-spec__group-title'>{group.name}</Text>
             <View className='item-spec__group-list'>
@@ -81,10 +81,10 @@ export default class Spec extends Component {
                 <Text
                   key={item.id}
                   className={classNames('item-spec__group-list-item', {
-                    'item-spec__group-list-item--active': this.isSelected(item, groupIndex),
+                    'item-spec__group-list-item--active': this.isSelected(item, group.id),
                     'item-spec__group-list-item--disabled': !this.isValid(item)
                   })}
-                  onClick={this.handleSelect.bind(this, item, groupIndex)}
+                  onClick={this.handleSelect.bind(this, item, group.id)}
                 >
                   {item.value}
                 </Text>

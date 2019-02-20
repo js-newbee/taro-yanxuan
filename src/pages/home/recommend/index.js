@@ -55,7 +55,7 @@ export default class Recommend extends Component {
                   }
                 </View>
 
-                {!!(item.comments && item.comments[0]) &&
+                {!!(item.comments && item.comments[0] && item.comments[0].content) &&
                   <View className='home-recommend__list-item-commend'>
                     <Image
                       className='home-recommend__list-item-commend-img'

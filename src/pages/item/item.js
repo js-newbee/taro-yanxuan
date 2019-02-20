@@ -71,8 +71,9 @@ class Item extends Component {
     if (!visible) {
       this.setState({ visible: true })
     } else {
+      // XXX 加购物车逻辑不一定准确
       Taro.showToast({
-        title: '请选择规格属性',
+        title: '请选择规格（或换个商品测试）',
         icon: 'none'
       })
     }

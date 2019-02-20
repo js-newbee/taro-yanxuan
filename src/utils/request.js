@@ -64,7 +64,7 @@ export default async function fetch(options) {
 
     if (err.code === CODE_AUTH_EXPIRED && autoLogin) {
       Taro.navigateTo({
-        url: '/pages/user-login'
+        url: '/pages/user-login/user-login'
       })
     }
 
