@@ -8,9 +8,11 @@
 
 ## 效果预览
 
-本项目直接调用的网易严选微信小程序接口，若要体验登录、购物车功能，请使用网易邮箱账号登录。
+小程序端已支持微信小程序、支付宝小程序，但无法提供在线版，请 clone 代码本地运行。
 
-| 微信小程序 | H5 - [访问链接](http://jsnewbee.com/taro-yanxuan/) | React Native |
+本项目直接调用的网易严选接口，若要体验登录、购物车功能，请使用网易邮箱账号登录。
+
+| 小程序 | H5 - [访问链接](http://jsnewbee.com/taro-yanxuan/) | React Native |
 | :--------: | :--------:| :--------: |
 | 请 clone 代码本地运行 | ![H5](https://qit-team.github.io/public/images/taro-yanxuan/h5-qr-code.png) | [Expo Snacks](https://snack.expo.io/@caiminxing/taro-yanxuan) |
 
@@ -22,7 +24,7 @@
 
 ## 本地运行
 
-本项目直接调用的网易严选微信小程序接口，若要体验登录、购物车功能，请使用网易邮箱账号登录。
+本项目直接调用的网易严选接口，若要体验登录、购物车功能，请使用网易邮箱账号登录。
 
 ``` bash
 # 全局安装 @tarojs/cli 指定版本，或 npm install -g @tarojs/cli@1.2.13
@@ -31,7 +33,7 @@ yarn global add @tarojs/cli@1.2.13
 # 安装依赖，或 npm i
 yarn
 
-# 运行微信小程序
+# 运行小程序（微信 weapp，支付宝 alipay）
 npm run dev:weapp
 
 # 运行 H5

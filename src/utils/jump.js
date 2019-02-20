@@ -12,7 +12,7 @@ export default function jump(options) {
 
   if (/^https?:\/\//.test(url)) {
     Taro[method]({
-      url: `${PAGE_WEBVIEW}?${urlStringify({ url, title })}`
+      url: urlStringify(PAGE_WEBVIEW, { url, title })
     })
   } else if (/^\/pages\//.test(url)) {
     // TODO H5 不支持 switchTab，暂时 hack 下
@@ -23,14 +23,16 @@ export default function jump(options) {
     }
 
     Taro[method]({
-      url: `${url}?${urlStringify(payload)}`
+      url: urlStringify(url, payload)
     })
   }
 }
 
-function urlStringify(payload, encode = true) {
+function urlStringify(url, payload, encode = true) {
   const arr = Object.keys(payload).map(key =>
     `${key}=${encode ? encodeURIComponent(payload[key]) : payload[key]}`
   )
-  return arr.join('&')
+
+  // NOTE 注意支付宝小程序跳转链接如果没有参数，就不要带上 ?，否则可能无法跳转
+  return arr.length ? `${url}?${arr.join('&')}` : url
 }
