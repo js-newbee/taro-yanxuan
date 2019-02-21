@@ -81,7 +81,7 @@ class Home extends Component {
     return (
       <View className='home'>
         <View className='home__search'>
-          <View className='home__search-wrap'>
+          <View className='home__search-wrap' onClick={this.handlePrevent}>
             <Image className='home__search-img' src={searchIcon} />
             <Text className='home__search-txt'>
               {`搜索商品，共${searchCount}款好物`}
