@@ -17,7 +17,7 @@
 		"dev:h5": "cross-env CLIENT_ENV=h5 npm run build:h5 -- --watch",
 		"dev:rn": "cross-env CLIENT_ENV=rn npm run build:rn -- --watch"
 	},
-	"author": "",
+	"author": "js-newbee",
 	"license": "MIT",
 	"dependencies": {
 		"@tarojs/async-await": "1.2.13",

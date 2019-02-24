@@ -18,7 +18,7 @@
 
 如下是 **React Native** 的运行截图：
 
-| 首页、分类 | 二级分类、详情 | 购物车、个人 |
+| 首页、分类 | 详情、加购物车 | 购物车、个人 |
 | :--------: | :--------:| :--------: |
 | ![首页、分类](https://qit-team.github.io/public/images/taro-yanxuan/video-01.gif) | ![二级分类、详情](https://qit-team.github.io/public/images/taro-yanxuan/video-02.gif) | ![购物车、个人](https://qit-team.github.io/public/images/taro-yanxuan/video-03.gif) |
 
@@ -49,3 +49,7 @@ npm run dev:rn
 ## 其他说明
 
 本项目代码没有做过多封装，方便阅读，也实现了足够多的样式细节进行踩坑，具体涉及的踩坑点、注意事项都在代码中以注释 `// TODO`（Taro 还未支持的）、`// NOTE`（开发技巧、注意事项）注明了。
+
+## License
+
+MIT
