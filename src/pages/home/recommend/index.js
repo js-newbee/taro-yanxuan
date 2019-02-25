@@ -30,7 +30,7 @@ export default class Recommend extends Component {
               onClick={this.handleClick.bind(this, item)}
             >
               <Image className='home-recommend__list-item-img' src={item.listPicUrl} />
-              {item.simpleDesc && !item.simpleDescClose &&
+              {!!item.simpleDesc && !item.simpleDescClose &&
                 <Text className='home-recommend__list-item-desc' numberOfLines={1}>
                   {item.simpleDesc}
                 </Text>

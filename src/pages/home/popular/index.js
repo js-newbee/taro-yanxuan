@@ -24,7 +24,7 @@ export default class Popular extends Component {
               <Image className='home-popular__show-item-bg' src={imgBg} />
               <Image className='home-popular__show-item-img' src={item.listPicUrl} />
               <View className='home-popular__show-item-info'>
-                {item.limitedTag &&
+                {!!item.limitedTag &&
                   <Tag text={item.limitedTag} />
                 }
                 <Text className='home-popular__show-item-name' numberOfLines={1}>
@@ -47,7 +47,7 @@ export default class Popular extends Component {
                 className='home-popular__list-item-img'
                 src={item.listPicUrl}
               />
-              {item.limitedTag &&
+              {!!item.limitedTag &&
                 <Tag text={item.limitedTag} />
               }
               <View className='home-popular__list-item-wrap'>
