@@ -1,12 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, WebView } from '@tarojs/components'
-import './webview.scss'
-
 /**
- * // NOTE Taro 的 RN 端还未提供 WebView 组件，这种情况需要自己根据环境引入原生组件
- * 要注意引入写法，按如下方式才行，这样只会在相应环境引入，其他环境不会引入
+ * // NOTE Taro 的 RN 端还未提供 WebView 组件，可以引入原生组件来解决
+ * Taro 有开启了 tree shaking，对于未用到的内容编译时会自动去除
+ * 因此把相应端的内容都 import 进来，再根据环境进行调用即可
  */
-const WebViewRN = process.env.TARO_ENV === 'rn' ? require('./rn').default : null
+import WebViewRN from './rn'
+import './webview.scss'
 
 export default class extends Component {
   config = {
@@ -25,6 +25,7 @@ export default class extends Component {
   render () {
     return (
       <View className='webview'>
+        {/* // NOTE 编译时只会保留相应端的内容，因此非 RN 端时不会编译 WebViewRN */}
         {process.env.TARO_ENV === 'rn' ?
           <WebViewRN src={this.url} /> :
           <WebView src={this.url} />

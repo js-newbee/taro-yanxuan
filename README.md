@@ -27,9 +27,6 @@
 本项目直接调用的网易严选接口，若要体验登录、购物车功能，请使用网易邮箱账号登录。
 
 ``` bash
-# 全局安装 @tarojs/cli 指定版本，或 npm install -g @tarojs/cli@1.2.13
-yarn global add @tarojs/cli@1.2.13
-
 # 安装依赖，或 npm i
 yarn
 
@@ -41,8 +38,8 @@ npm run dev:h5
 
 # 运行 React Native，有如下注意事项：
 # 1. 基于 Expo，运行说明：https://nervjs.github.io/taro/docs/react-native.html
-# 2. 首次运行可能会报错，参见 issue：https://github.com/NervJS/taro/issues/2121
-# 3. 当前只适配了 375px 屏幕，若用 iOS 模拟器打开的不是 iPhone 6/7/8，可点击顶部菜单 Hardware -> iOS xx 切换设备
+# 2. 当前只适配了 375px 屏幕，若用 iOS 模拟器打开的不是 iPhone 6/7/8，可点击顶部菜单 Hardware -> iOS xx 切换设备
+# 3. 首次运行会报错，请手动添加 fbjs 依赖：cd ./.rn_temp && yarn add fbjs
 npm run dev:rn
 ```
 

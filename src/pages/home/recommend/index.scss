@@ -30,10 +30,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 15px 40px;
-
-    // TODO RN 的 Clickable 处理有问题，暂时用 flex-basis 实现 width
-    @include eject(width, 50%);
-    flex-basis: 50%;
+    width: 50%;
 
     &-desc {
       padding: 0 12px;

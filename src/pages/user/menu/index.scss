@@ -12,15 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 33.3%;
   height: 180px;
   @include border(right bottom, 1px, solid, rgba(0, 0, 0, .15));
-
-  /**
-   * // TODO RN 中的 View 是没有 onClick 事件的，Taro 做了兼容处理，但对样式处理尚有问题
-   * 暂时通过 flex-basis 实现 width 效果
-   */
-  @include eject(width, 33.3%);
-  flex-basis: 33.3%;
 
   &-img {
     width: 52px;
