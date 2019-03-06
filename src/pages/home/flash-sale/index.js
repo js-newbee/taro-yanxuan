@@ -11,17 +11,24 @@ export default class FlashSale extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      leftTime: parseInt((props.data.leftTime || 0) / 1000)
+      leftTime: this.getTime(props.data.leftTime)
     }
     this.timer = null
   }
 
   componentDidMount() {
     this.timer = setInterval(() => {
-      if (this.state.leftTime > 0) {
-        this.setState({ leftTime: this.state.leftTime - 1 })
+      const { leftTime } = this.state
+      if (leftTime > 0) {
+        this.setState({ leftTime: leftTime - 1 })
       }
     }, 1000)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.data.leftTime !== this.props.data.leftTime) {
+      this.setState({ leftTime: this.getTime(nextProps.data.leftTime) })
+    }
   }
 
   componentWillUnmount() {
@@ -30,7 +37,9 @@ export default class FlashSale extends Component {
     }
   }
 
-  renderNum = (num) => num >= 10 ? num : `0${num}`
+  getTime = time => parseInt((time || 0) / 1000)
+
+  renderNum = num => num >= 10 ? num : `0${num}`
 
   render () {
     const { data: { itemList = [] } } = this.props
