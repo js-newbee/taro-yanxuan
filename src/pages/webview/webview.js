@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, WebView } from '@tarojs/components'
 /**
- * // NOTE Taro 的 RN 端还未提供 WebView 组件，可以引入原生组件来解决
+ * // NOTE Taro 的 RN 端还未提供 WebView 组件，可以引入原生组件来解决（备注：Taro v1.2.16 已支持）
  * Taro 有开启了 tree shaking，对于未用到的内容编译时会自动去除
  * 因此把相应端的内容都 import 进来，再根据环境进行调用即可
  */
