@@ -8,10 +8,12 @@ export default class ButtonItem extends Component {
   static defaultProps = {
     compStyle: '',
     textStyle: '',
+    openType: '',
     plain: false,
     loading: false,
     disabled: false,
-    onClick: () => {}
+    onClick: () => {},
+    onGetUserInfo: () => {}
   }
 
   getCls = (base) => {
@@ -25,14 +27,19 @@ export default class ButtonItem extends Component {
   }
 
   render () {
-    const { compStyle, textStyle, loading, disabled, text, onClick } = this.props
+    const {
+      compStyle, textStyle, openType, loading, disabled, text,
+      onClick, onGetUserInfo
+    } = this.props
     return (
       <Button
         className={this.getCls('comp-button')}
         style={postcss(compStyle)}
         loading={loading}
         disabled={disabled}
+        openType={openType}
         onClick={onClick}
+        onGetUserInfo={onGetUserInfo}
       >
         <Text
           className={this.getCls('comp-button__txt')}
