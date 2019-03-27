@@ -1,11 +1,11 @@
 # CHANGELOG
 
-## 1.2.0 (2010-03-13)
+## 1.2.0 (2019-03-13)
 
 * 升级 Taro 至 v1.2.17（@tarojs/components 有 bug，暂时用 v1.2.16）
 * 引入统一接口的多端文件方式处理多端兼容问题 (./src/user-login/user-login)
 
-## 1.1.0 (2010-03-05)
+## 1.1.0 (2019-03-05)
 
 * 升级 Taro 至 v1.2.15
 * 去掉 RN 绑定 onClick 时的样式兼容处理 [issue](https://github.com/NervJS/taro/issues/2205)
