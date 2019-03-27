@@ -9,9 +9,9 @@ export default class Recommend extends Component {
     list: []
   }
 
-  handleClick = (item) => {
+  handleClick = (id) => {
     Taro.navigateTo({
-      url: `/pages/item/item?itemId=${item.id}`
+      url: `/pages/item/item?itemId=${id}`
     })
   }
 
@@ -23,46 +23,46 @@ export default class Recommend extends Component {
           <Text className='home-recommend__title-txt'>为你推荐</Text>
         </View>
         <View className='home-recommend__list'>
-          {list.map(item => (
+          {list.filter(item => item.type === 1).map(({ id, categoryItem }) => (
             <View
-              key={item.id}
+              key={id}
               className='home-recommend__list-item'
-              onClick={this.handleClick.bind(this, item)}
+              onClick={this.handleClick.bind(this, id)}
             >
-              <Image className='home-recommend__list-item-img' src={item.listPicUrl} />
-              {!!item.simpleDesc && !item.simpleDescClose &&
+              <Image className='home-recommend__list-item-img' src={categoryItem.listPicUrl} />
+              {!!categoryItem.simpleDesc && !categoryItem.simpleDescClose &&
                 <Text className='home-recommend__list-item-desc' numberOfLines={1}>
-                  {item.simpleDesc}
+                  {categoryItem.simpleDesc}
                 </Text>
               }
               <View className='home-recommend__list-item-info'>
-                {!!item.limitedTag &&
-                  <Tag text={item.limitedTag} />
+                {!!categoryItem.limitedTag &&
+                  <Tag text={categoryItem.limitedTag} />
                 }
 
                 <Text className='home-recommend__list-item-name' numberOfLines={1}>
-                  {item.name}
+                  {categoryItem.name}
                 </Text>
 
                 <View className='home-recommend__list-item-price-wrap'>
                   <Text className='home-recommend__list-item-price'>
-                    ¥{item.activityPrice || item.retailPrice}
+                    ¥{categoryItem.activityPrice || categoryItem.retailPrice}
                   </Text>
-                  {!!item.activityPrice &&
+                  {!!categoryItem.activityPrice &&
                     <Text className='home-recommend__list-item-price--origin'>
-                      ¥{item.retailPrice}
+                      ¥{categoryItem.retailPrice}
                     </Text>
                   }
                 </View>
 
-                {!!(item.comments && item.comments[0] && item.comments[0].content) &&
+                {!!(categoryItem.comments && categoryItem.comments[0] && categoryItem.comments[0].content) &&
                   <View className='home-recommend__list-item-commend'>
                     <Image
                       className='home-recommend__list-item-commend-img'
-                      src={item.comments[0].frontUserAvatar || defaultAvatar}
+                      src={categoryItem.comments[0].frontUserAvatar || defaultAvatar}
                     />
                     <Text className='home-recommend__list-item-commend-txt' numberOfLines={2}>
-                      {item.comments[0].content}
+                      {categoryItem.comments[0].content}
                     </Text>
                   </View>
                 }

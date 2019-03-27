@@ -33,6 +33,13 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    // NOTE 暂时去掉不适配的内容
+    Taro.showToast({
+      title: '注意，由于严选小程序首页界面、接口大幅变动，暂时去掉不相符的部分，后续再跟进改动',
+      icon: 'none',
+      duration: 6000
+    })
+
     this.props.dispatchHome().then(() => {
       this.setState({ loaded: true })
     })
@@ -105,25 +112,25 @@ class Home extends Component {
             />
 
             {/* 不知道叫啥 */}
-            <Operation
+            {/* <Operation
               list={homeInfo.operationCfg}
               sale={homeInfo.saleCenter}
-            />
+            /> */}
 
             {/* 品牌制造 */}
-            <Manufactory
+            {/* <Manufactory
               data={homeInfo.manufactory}
               boss={homeInfo.dingBossRcmd}
-            />
+            /> */}
 
             {/* 限时购 */}
-            <FlashSale data={homeInfo.flashSale} />
+            {/* <FlashSale data={homeInfo.flashSale} /> */}
 
             {/* 人气推荐 */}
-            <Popular data={homeInfo.popularItems} />
+            {/* <Popular data={homeInfo.popularItems} /> */}
 
             {/* 类目热销榜 */}
-            <Category data={homeInfo.hotCategory} />
+            {/* <Category data={homeInfo.hotCategory} /> */}
           </View>
 
           {/* 为你推荐 */}
