@@ -60,7 +60,7 @@ class Home extends Component {
     }
     this.setState({ loading: true })
     this.props.dispatchRecommend(payload).then((res) => {
-      const lastItem = res.itemList[res.itemList.length - 1]
+      const lastItem = res.rcmdItemList[res.rcmdItemList.length - 1]
       this.setState({
         loading: false,
         hasMore: res.hasMore,
