@@ -25,6 +25,14 @@ class UserLoginEmail extends Component {
     loading: false
   }
 
+  componentDidMount() {
+    Taro.showToast({
+      title: '注意，严选小程序的登录有变动，目前无法正常登录',
+      icon: 'none',
+      duration: 5000
+    })
+  }
+
   handleInput = (key, value) => {
     this.setState({ [key]: value })
     if (key === 'username') {
@@ -83,12 +91,12 @@ class UserLoginEmail extends Component {
           />
           {isShowSuggest &&
             <View className='user-login-email__suggest'>
-              {EMAIL_SUFFIX.map((suffix, index) => {
+              {EMAIL_SUFFIX.map((suffix) => {
                 const name = username.split('@')[0]
                 const value = `${name}@${suffix}`
                 return (
                   <View
-                    key={index}
+                    key={suffix}
                     className='user-login-email__suggest-item'
                     onClick={this.handleSuggest.bind(this, value)}
                   >
