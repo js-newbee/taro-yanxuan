@@ -24,7 +24,7 @@
 
 ## 本地运行
 
-本项目直接调用的网易严选接口，若要体验登录、购物车功能，请使用网易邮箱账号登录。
+本项目直接调用的网易严选接口（网易登录接口改动，暂时无法登陆）。
 
 ``` bash
 # 安装依赖，或 npm i
@@ -37,9 +37,7 @@ npm run dev:weapp
 # 运行 H5
 npm run dev:h5
 
-# 运行 React Native，有如下注意事项：
-# 1. 基于 Expo，运行说明：https://nervjs.github.io/taro/docs/react-native.html
-# 2. 当前只适配了 375px 屏幕，若用 iOS 模拟器打开的不是 iPhone 6/7/8，可点击顶部菜单 Hardware -> iOS xx 切换设备
+# 运行 React Native，请务必查阅文档：https://nervjs.github.io/taro/docs/react-native.html
 npm run dev:rn
 ```
 
@@ -49,7 +47,7 @@ npm run dev:rn
 
 本项目不会去实现一个完整的网易严选，但也实现了足够多的功能、细节进行踩坑，具体涉及的踩坑点、注意事项都在代码中以注释 `// TODO`（Taro 还未支持的）、`// NOTE`（开发技巧、注意事项）注明了。
 
-另外 Taro 的版本更新速度还是很给力的，本项目最早基于 v1.2.11 开发，2 月 19 号发布时用的是 v1.2.13，到 3 月 11 号时已更新到 v1.2.17 版本，我们也会尽量跟进版本变动，对代码做出相应完善。
+最后，有一点很遗憾，就是一开始没有保留一份 mock 数据，后面网易严选改动挺大，主要是登录逻辑也变了，导致不少功能现在没法运行，后续有空会完善 mock 功能。
 
 ## License
 

@@ -20,7 +20,7 @@ export default class Profile extends Component {
     }
   }
 
-  renderUid = (uid) => {
+  getUid = (uid) => {
     if (!uid || !/@/.test(uid)) {
       return ''
     }
@@ -60,7 +60,7 @@ export default class Profile extends Component {
                 {/* XXX 没有全部 level 对应的图标，暂时都用 v1 */}
                 <Image className='user-profile__info-level' src={level01} />
                 <Text className='user-profile__info-uid'>
-                  {this.renderUid(userInfo.uid)}
+                  {this.getUid(userInfo.uid)}
                 </Text>
               </View> :
               <Text className='user-profile__info-tip'>点击登录账号</Text>

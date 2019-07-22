@@ -88,7 +88,7 @@ class Index extends Component {
 
           {!isEmpty && cartList.map((group, index) => (
             <List
-              key={index}
+              key={`${group.promId}_${index}`}
               promId={group.promId}
               promType={group.promType}
               list={group.cartItemList}
@@ -99,7 +99,7 @@ class Index extends Component {
 
           {/* 相关推荐 */}
           {extList.map((ext, index) => (
-            <ItemList key={index} list={ext.itemList}>
+            <ItemList key={`${ext.id}_${index}`} list={ext.itemList}>
               <View className='cart__ext'>
                 {!!ext.picUrl && <Image className='cart__ext-img' src={ext.picUrl} />}
                 <Text className='cart__ext-txt'>{ext.desc}</Text>
